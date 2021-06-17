@@ -1,7 +1,7 @@
 <?php
 class Customer{
 	protected $CustomerId;
-	protected $Name;
+	protected $Name; #
 	protected $AlamatId;
 	protected $Alamat;
 	protected $Deskripsi;
