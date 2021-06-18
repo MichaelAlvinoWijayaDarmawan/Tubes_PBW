@@ -1,7 +1,7 @@
 <?php
 require_once "controller/services/mysqlDB.php";
 require_once "controller/services/view.php";
-require_once "model/Customer.php";
+require_once "model/customer.php";
 
 class UserController{
     protected $db;

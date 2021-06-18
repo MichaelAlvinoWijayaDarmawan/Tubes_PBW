@@ -1,33 +1,33 @@
 <?php
 class Customer{
-	protected $CustomerId;
-	protected $Name; #
-	protected $AlamatId;
-	protected $Alamat;
-	protected $Deskripsi;
+	protected $customer_id;
+	protected $name;
+	protected $address;
+	protected $address_id;
+	protected $description;
 	
-	public function __construct($CustomerId,$Name,$AlamatId,$Alamat,$Deskripsi){
-		$this->CustomerId = $CustomerId;
-		$this->Name = $Name;
-		$this->AlamatId = $AlamatId;
-		$this->Alamat = $Alamat;
-		$this->Deskripsi = $Deskripsi;
+	public function __construct($customer_id,$name,$address,$address_id,$description){
+		$this->customer_id = $customer_id;
+		$this->name = $name;
+		$this->address = $address;
+		$this->address_id = $address_id;
+		$this->description = $description;
 	}
 
 	public function getCustomerId(){
-		return $this->CustomerId;
+		return $this->customer_id;
 	}
-	public function getAlamatId(){
-		return $this->AlamatId;
+	public function getAddressId(){
+		return $this->address_id;
 	}
-	public function getAlamat(){
-		return $this->Alamat;
+	public function getAddress(){
+		return $this->address;
 	}
 	public function getName(){
-		return $this->Name;
+		return $this->name;
 	}
-	public function getDeskripsi(){
-		return $this->Deskripsi;
+	public function getDescription(){
+		return $this->description;
 	}
 }
 
