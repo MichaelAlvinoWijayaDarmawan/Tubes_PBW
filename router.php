@@ -9,10 +9,15 @@
 				$indexCtrl = new userController();
 				echo $indexCtrl->view_index();
 				break;
-			case $baseURL.'/adminKirim':
+			case $baseURL.'/listUser':
 				require_once "controller/adminController.php";
 				$indexCtrl = new adminController();
-				echo $indexCtrl->view_index();
+				echo $indexCtrl->view_admin();
+				break;
+			case $baseURL.'/addDelivery':
+				require_once "controller/adminController.php";
+				$indexCtrl = new adminController();
+				echo $indexCtrl->view_addDelivery();
 				break;
 			default:
 				echo '404 Not Found';

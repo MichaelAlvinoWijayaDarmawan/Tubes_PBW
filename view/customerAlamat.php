@@ -10,12 +10,13 @@
 		<th>Deskripsi</th>
 	</tr>
 	<?php
+	
 		$i=1;
 	foreach ($result as $key => $row) {
 			echo "<tr>";
 			echo "<td>".$i."</td>";
-			echo "<td>".$row->getAlamat()."</td>";
-			echo "<td>".$row->getDeskripsi()."</td>";
+			echo "<td>".$row->getAddress()."</td>";
+			echo "<td>".$row->getDescription()."</td>";
 			$i+=1;
 	}
 	?>

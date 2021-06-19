@@ -29,7 +29,7 @@ class UserController{
 		$query_result = $this->db->executeSelectQuery($query);
 		$result = [];
 		foreach ($query_result as $key => $value){
-			$result[] = new Customer($value['id'],$value['name'],$value['id'],$value['address'],$value['description']);
+			$result[] = new Customer($value['id'],$value['name'],$value['address'],$value['id'],$value['description']);
 		}
 		return $result;
 	}
