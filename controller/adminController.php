@@ -22,6 +22,8 @@ class adminController{
 			"username" => $this->username,
 			"result" => $result
 			]);}
+		else{
+			header('Location: login');}
     }
 	public function view_addDelivery(){
 		$id = "";
@@ -35,6 +37,10 @@ class adminController{
 				"id" => $id,
 				"result" => $result
 		]);}
+		else{
+			header('Location: login');}
+		
+		
     }
     public function getAllData(){
 		$query = "SELECT * from customers";
