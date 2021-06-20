@@ -33,13 +33,13 @@ class loginController{
     }
 	
         public function login(){
-            $Username = $_POST['username'];
+            $Username = $_POST['name'];
             $Password = $_POST['password'];
             $Role = $_POST['role'];
-            $result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE username = '$Username' AND password = '$Password'");
-            if(isset($result[0]['username']) && $result[0]['password'] != ''){
+            $result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name = '$Username' AND password = '$Password'");
+            if(isset($result[0]['name']) && $result[0]['password'] != ''){
                 session_start();
-                $_SESSION['username'] = $result[0]['username'];
+                $_SESSION['name'] = $result[0]['name'];
                 $_SESSION['id'] = $result[0]['id'];
                 $_SESSION['role'] = $Role;
             }
@@ -47,7 +47,7 @@ class loginController{
 
         public function logout(){
             session_start();
-            unset($_SESSION['username']);
+            unset($_SESSION['name']);
             unset($_SESSION['id']);
         }
 }

@@ -9,7 +9,7 @@
         <div class="form-container">
             <H1>LoginForm</H1>
             <form id="LoginForm" action="enter" method="post" >
-                <input type="text" placeholder="Username" name ="username" required>
+                <input type="text" placeholder="Username" name ="name" required>
                 <input type="password" placeholder="Password" name ="password" required>
                 Role: <select name="role" id="role" required>
                     <option value="" selected="selected" required>Choose Role</option>
