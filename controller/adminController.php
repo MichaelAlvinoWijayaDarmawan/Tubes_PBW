@@ -53,8 +53,6 @@ class adminController{
 			[]);}
 		else{
 			header('Location: login');}
-		
-		
     }
 	
     public function getAllData(){
