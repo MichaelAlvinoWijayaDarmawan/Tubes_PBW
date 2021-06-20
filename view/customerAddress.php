@@ -2,7 +2,7 @@
 <a href="" >Alamat</a>
 <a href="">Cek Status</a>
 <a href="">Help</a>
-<p>Hi ,<?php  echo $result[0]->getName();?></p>
+
 <table style="border:1px solid black;">
 	<tr>
 		<th>No</th>

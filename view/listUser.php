@@ -23,6 +23,9 @@
 			echo "<form class = '' method='GET' action='addDelivery'>".
 				"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
 				"<input type='submit' value='KIRIM' name='kirim' width='60px'></form>";
+			echo "<form class = '' method='GET' action='customerAddress'>".
+				"<input type='hidden' name='id' value='$idSelect'/>" .
+				"<input type='submit' value='AddAddress' name='AddAddress' width='60px'></form>";
 			echo "</td>";
 			echo "</tr>";
 			$i++;

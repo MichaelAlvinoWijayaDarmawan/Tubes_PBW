@@ -11,6 +11,9 @@
 		<label>Nama User  :
 		<input type="text" name="name"> </label>
 		</br> </br>
+		<label>Password  :
+		<input type="password" name="password"> </label>
+		</br> </br>
 		<label>Alamat Pengiriman :
 		<input type="text" name="alamat"> </label>
 		</br> </br>
