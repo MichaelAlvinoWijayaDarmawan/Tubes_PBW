@@ -1,5 +1,4 @@
 
-/ LOGIN */
 table {
     width: 100%;
 }
@@ -16,9 +15,10 @@ td {
 th {
     color: navy;
 }
+
+/* LOGIN */
 .account-page{
     padding: 50px;
-    margin-left: 11%;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
@@ -31,8 +31,8 @@ th {
 .form-container{
     background: #fff;
     width: 300px;
-    height: 400px;
-    position: relative;
+    height: 300px;
+    position: center;
     text-align: center;
     padding: 20px 0;
     margin: auto;
@@ -40,30 +40,8 @@ th {
     overflow: hidden;
 }
 
-.form-container span{
-    font-weight: bold;
-    padding: 0 10px;
-    color: #555;
-    cursor: pointer;
-    width: 100px;
-    display: inline-block;
-}
-
-.form-btn{
-    display: inline-block;
-    font-family: "mons_med";
-}
-
-.form-container form{
-    max-width: 300px;
-    padding: 0 20px;
-    position: absolute;
-    top: 100px;
-    transition: transform 1s;
-}
-
 form input{
-    width: 100%;
+    width: 80%;
     height: 30px;
     margin: 10px 0;
     padding: 0 10px;
@@ -71,30 +49,16 @@ form input{
 }
 
 form .btn{
-    width: 100%;
+    width: 80%;
     border: none;
     cursor: pointer;
     margin: 10px 0;
 }
 
-form .btn:focus{
-    outline: none;
-}
-
-
-#LoginForm {
-    left: 0px;
-    font-family: "mons_reg";
-}
-
-
-
 .btn{
     padding: 15px;
     background: #0275d8;
     box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
-    font-family: "mons_semibold";
     color: white;
     border-radius: 25px;
 }
-
