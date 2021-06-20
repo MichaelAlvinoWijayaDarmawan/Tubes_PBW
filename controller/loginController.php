@@ -2,7 +2,7 @@
 require_once "controller/services/mysqlDB.php";
 require_once "controller/services/view.php";
 
-class loginController{
+class LoginController{
     protected $db;
 
     public function __construct(){

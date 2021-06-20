@@ -4,7 +4,7 @@ require_once "controller/services/view.php";
 require_once "model/customer.php";
 require_once "model/drivers.php";
 
-class adminController{
+class AdminController{
     protected $db;
 	protected $id;
     public function __construct(){
@@ -24,7 +24,8 @@ class adminController{
 			"result" => $result
 			]);}
 		else{
-			header('Location: login');}
+			header('Location: login');
+		}
     }
 	public function view_addDelivery(){
 		$id = "";
@@ -41,9 +42,8 @@ class adminController{
 				"result2" => $result2
 		]);}
 		else{
-			header('Location: login');}
-		
-		
+			header('Location: login');
+		}
     }
 	
 	public function view_addNewUser(){
@@ -87,10 +87,47 @@ class adminController{
 		return $result;
 	}
 
-	public function insertData(){
-		$customerId = $_GET['idCustomer'];
-		$deliveryId = $_POST['address'];
-		#$query = "INSERT INTO (deliveries,delivery_details) (name) VALUES ('$group')";
+	public function addData(){
+		$customerId = $_POST['idCustomer'];
+		$addressId = $_POST['address'];
+		$driverId = $_POST['drivers'];
+		$mode = $_POST['status'];
+		if(isset($_POST['tanggalKirim'])){
+			$tanggalKirim = $_POST['tanggalKirim'];
+		}
+		$itemName = $_POST['namaBarang'];
+		$itemCategory = $_POST['jenisBarang'];
+		$itemQuantity = $_POST['banyakBarang'];
+		$itemUnit = $_POST['satuanBarang'];
+		
+
+		$query = "INSERT INTO items (name,category) VALUES ('$itemName','$itemCategory')";
+		$this->db->executeNonSelectQuery($query);
+		if($mode=="Sekarang"){
+			$mode = 'Sedang Dikirim';
+			$tanggalKirim = date("Y/m/d H:i:s");
+			$scheduled = date("Y/m/d");
+			$query = "INSERT INTO deliveries (customer_id,destination_id,driver_id,scheduled_datetime,start_datetime,end_datetime,status) 
+				VALUES ('$customerId','$addressId','$driverId','$scheduled','$tanggalKirim','','$mode')";
+		}
+		else{
+			$mode = 'Belum Dikirim';
+			$date = date_create($tanggalKirim);
+			$datetime = date_format($date,"Y/m/d H:i:s");
+			$tanggalKirim = $datetime;
+			$query = "INSERT INTO deliveries (customer_id,destination_id,driver_id,scheduled_datetime,start_datetime,end_datetime,status) 
+				VALUES ('$customerId','$deliveryId','$driverId','$tanggalKirim','','','$mode')";
+		}
+		$this->db->executeNonSelectQuery($query);
+		$query = "SELECT id from deliveries order by id desc limit 1 ";
+		$result_query = $this->db->executeSelectQuery($query);
+		$deliveryId = $result_query[0]['id'];
+		$query = "SELECT id from items order by id desc limit 1 ";
+		$result_query = $this->db->executeSelectQuery($query);
+		$itemsId = $result_query[0]['id'];
+		$query = "INSERT INTO delivery_details (delivery_id,item_id,quantity,unit) 
+			VALUES ('$deliveryId','$itemsId','$itemQuantity','$itemUnit')";
+		$result_query = $this->db->executeNonSelectQuery($query);
 	}
 }
 ?>

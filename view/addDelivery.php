@@ -5,7 +5,7 @@
 <a href="logout">Logout</a>
 <br>
 <?php $idC=$_GET['idCustomer'];?>
-<form id="addDelivery" method="POST" action="">
+<form id="addDelivery" method="POST" action="addDelivery">
 <input type="hidden" name="idCustomer" value="<?php echo $idC; ?>" />
 <label>Nama Customer :
 	<input type="text" name="name" value="<?php echo $result[0]->getName();?>" disabled> 
@@ -39,13 +39,13 @@
 <br>
 <fieldset>
 <legend>Mode Pengiriman</legend>
-	<input type="radio" name="status" id="now" value="<?php echo date("Y-m-d")?>"/>
+	<input type="radio" name="status" value="Sekarang" onclick = 'setDisable()' checked/>
 	<label for="status">Kirim Sekarang</label><br>
-	<input type="text" value="<?php echo date("d-m-Y")?>" placeholder="<?php echo date("Y-m-d")?>" disabled>
+	<input type="text" value="<?php echo date("d-m-Y")?>" placeholder="<?php echo date("d-m-Y")?>" disabled>
 	<br>
-	<input type="radio" name="status" id="later" value="Normal Radio" checked= />
+	<input type="radio" name="status" value="Nanti" onclick = 'setEnable()'/>
 	<label for="status">Kirim Nanti</label><br>
-	<input type="date" value=""/>
+	<input type="date" name="tanggalKirim" id="tanggalKirim" disabled/>
 </fieldset>
 <br>
 <table>
@@ -64,4 +64,18 @@
 <label>Satuan Barang :
 	<input type="text" name="satuanBarang" value=""> 
 </label>
+<input type="submit" value="SUBMIT">
+<br>
+
 </form>
+<a href="listUser">BACK</a>
+
+<script>
+	let tgl = document.getElementById("tanggalKirim");
+	function setDisable(){
+		tgl.disabled = true;
+	}
+	function setEnable(){
+		tgl.disabled = false;
+	}
+</script>
