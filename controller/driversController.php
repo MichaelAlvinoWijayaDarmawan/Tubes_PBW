@@ -11,8 +11,9 @@ class DriversController{
 
     public function view_drivers(){
         $result = $this ->getAllData();
-		return View::createView('.php',
+		return View::createView('driverPage.php',
 			[
+
 				"result" => $result
 			]);
     }
@@ -20,6 +21,4 @@ class DriversController{
 		
 	}
 }
-?>
-
 ?>

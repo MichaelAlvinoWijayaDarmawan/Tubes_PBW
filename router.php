@@ -38,7 +38,7 @@
 			case $baseURL.'/driverPage':
 				require_once "controller/driversController.php";
 				$indexCtrl = new DriversController();
-				echo $indexCtrl->view_admin();
+				echo $indexCtrl->view_drivers();
 				break;
 			default:
 				echo '404 Not Found';
