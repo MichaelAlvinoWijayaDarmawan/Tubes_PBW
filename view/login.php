@@ -14,8 +14,8 @@
                 Role: <select name="role" id="role" required>
                     <option value="" selected="selected" required>Choose Role</option>
                     <option value="admin" >Admin</option>
-                    <option value="customer" >Customer</option>
-                    <option value="driver" >Driver</option>
+                    <option value="customers" >Customer</option>
+                    <option value="drivers" >Driver</option>
                 </select>
                 <br><br>
                 <button type="submit" class="btn">Login</button>
