@@ -3,9 +3,7 @@ table {
     width: 100%;
 }
 
-tr,
-th,
-td {
+tr,th,td {
 	border:1px solid black;
     text-align: center;
     padding-top: 6px;
@@ -62,3 +60,4 @@ form .btn{
     color: white;
     border-radius: 25px;
 }
+
