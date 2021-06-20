@@ -2,7 +2,7 @@
 <a href="" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="">Help</a>
-<p>Hi ,</p>
+<a href="logout">Logout</a>
 <?php $idC=$_GET['idCustomer'];?>
 <form method="POST" action="">
 <input type="hidden" name="idCustomer" value="<?php echo $idC; ?>" />

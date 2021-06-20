@@ -1,5 +1,21 @@
 
 / LOGIN */
+table {
+    width: 100%;
+}
+
+tr,
+th,
+td {
+	border:1px solid black;
+    text-align: center;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+th {
+    color: navy;
+}
 .account-page{
     padding: 50px;
     margin-left: 11%;
@@ -81,3 +97,4 @@ form .btn:focus{
     color: white;
     border-radius: 25px;
 }
+

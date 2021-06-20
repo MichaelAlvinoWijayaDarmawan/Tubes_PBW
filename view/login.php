@@ -8,10 +8,10 @@
     <div class=" account-page">
         <div class="form-container">
             <H1>LoginForm</H1>
-            <form id="LoginForm">
-                <input type="text" placeholder="Username" required>
-                <input type="password" placeholder="Password" required>
-                <button type="submit" class="btn" href="">Login</button>
+            <form id="LoginForm" action="enter" method="post" >
+                <input type="text" placeholder="Username" name ="username" required>
+                <input type="password" placeholder="Password" name ="password" required>
+                <button type="submit" class="btn">Login</button>
             </form>
         </div>
     </div>

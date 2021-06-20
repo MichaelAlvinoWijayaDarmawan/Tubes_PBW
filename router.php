@@ -4,6 +4,17 @@
 	
     if ($_SERVER["REQUEST_METHOD"] == "GET") {
 		switch ($url) {
+			case $baseURL."/login":
+				require_once "controller/loginController.php";
+				$userCtrl = new loginController();
+				echo $userCtrl->view_login();
+			break;
+			case $baseURL.'/logout':
+				require_once "controller/loginController.php";
+				$logout = new loginController();
+				echo $logout->logout();
+				header('Location: login');
+				break;
 			case $baseURL.'/customerAlamat':
 				require_once "controller/userController.php";
 				$indexCtrl = new userController();
@@ -30,6 +41,12 @@
 				$indexCtrl = new userController();
 				$indexCtrl->addAddress();
 				header('Location: ../customerAlamat?id='.$_POST['id'] );
+				break;
+			case $baseURL.'/enter':
+				require_once "controller/loginController.php";
+				$login= new loginController();
+				$login->login();
+				header('Location: login');
 				break;
 			default:
 				echo '404 Not Found';

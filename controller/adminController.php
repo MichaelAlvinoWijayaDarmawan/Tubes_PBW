@@ -5,20 +5,27 @@ require_once "model/customer.php";
 
 class adminController{
     protected $db;
-
+	protected $id;
     public function __construct(){
         $this->db = new MySQLDB("localhost","root","","delivery");
+		session_start();
+            $this->idAdmin = $_SESSION['id'];
+			$this->username = $_SESSION['username'];
     }
 
     public function view_admin(){
         $result = $this ->getAllData();
+		if($_SESSION['id']!=""){
 		return View::createView('listUser.php',
-			[
-				"result" => $result
-			]);
+			[	
+			"idAdmin" => $this->idAdmin,
+			"username" => $this->username,
+			"result" => $result
+			]);}
     }
 	public function view_addDelivery(){
 		$id = "";
+		if($_SESSION['id']!=""){
 		if(isset($_GET['idCustomer']) && $_GET['idCustomer'] != ""){
 			$id = $this->db->escapeString($_GET['idCustomer']);
 		}
@@ -27,7 +34,7 @@ class adminController{
 			[
 				"id" => $id,
 				"result" => $result
-			]);
+		]);}
     }
     public function getAllData(){
 		$query = "SELECT * from customers";

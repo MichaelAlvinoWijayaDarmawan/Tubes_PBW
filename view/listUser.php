@@ -2,7 +2,8 @@
 <a href="" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="">Help</a>
-<p>Hi ,</p>
+<p>Hi , <?php echo $username ?></p>
+<a href="logout">Logout</a>
 <table>
 	<tr>
 		<th>User ID</th>
