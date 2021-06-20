@@ -12,10 +12,10 @@ class Drivers{
 		$this->end_work_date = $end_work_date;
 	}
 
-	public function getId(){
-		return $this->getId;
+	public function getIdDriver(){
+		return $this->id;
 	}
-	public function getName(){
+	public function getNameDriver(){
 		return $this->name;
 	}
 	public function getStartWorkDate(){

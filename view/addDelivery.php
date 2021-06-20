@@ -19,6 +19,20 @@
 	} ?>
 </select>
 </label>
+<br>
+<br>
+<label>Driver :
+<select name="drivers">
+<?php foreach ($result2 as $key => $row) {
+			echo "<option value=";
+			echo $row->getIdDriver();
+			echo ">";
+			echo $row->getNameDriver();
+			echo"</option>";
+	} ?>
+</select>
+</label>
+
 </form>
 
 <br> 
