@@ -16,7 +16,7 @@ class UserController{
 			$id = $this->db->escapeString($_GET['id']);
 		}
 		$result = $this ->getAddress($id);
-		return View::createView('customerAlamat.php',
+		return View::createView('customerAddress.php',
 			[
 				"id" => $id,
 				"result" => $result

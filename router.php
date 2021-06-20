@@ -15,7 +15,7 @@
 				echo $logout->logout();
 				header('Location: login');
 				break;
-			case $baseURL.'/customerAlamat':
+			case $baseURL.'/customerAddress':
 				require_once "controller/userController.php";
 				$indexCtrl = new userController();
 				echo $indexCtrl->view_index();
@@ -36,11 +36,11 @@
 		}
 	}else if($_SERVER["REQUEST_METHOD"] == "POST"){
 		switch ($url) {
-			case $baseURL.'/CustomerAlamat/TambahAlamat':
+			case $baseURL.'/customerAddress':
 				require_once "controller/userController.php";
 				$indexCtrl = new userController();
 				$indexCtrl->addAddress();
-				header('Location: ../customerAlamat?id='.$_POST['id'] );
+				header('Location: ../customerAddress?id='.$_POST['id'] );
 				break;
 			case $baseURL.'/enter':
 				require_once "controller/loginController.php";

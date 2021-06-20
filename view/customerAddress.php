@@ -23,7 +23,7 @@
 </table>
 <fieldset>
 		<legend>Tambah Alamat</legend>
-		<form method="POST" action="CustomerAlamat/TambahAlamat">
+		<form method="POST" action="customerAddress">
 		<label>Alamat Pengiriman :
 		<input type="text" name="alamat"> </label>
 		</br> </br>
