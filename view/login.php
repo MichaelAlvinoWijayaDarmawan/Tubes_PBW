@@ -16,6 +16,7 @@
                     <option value="admin" >Admin</option>
                     <option value="customers" >Customer</option>
                     <option value="drivers" >Driver</option>
+                    <option value="manager" >Driver</option>
                 </select>
                 <br><br>
                 <button type="submit" class="btn">Login</button>
