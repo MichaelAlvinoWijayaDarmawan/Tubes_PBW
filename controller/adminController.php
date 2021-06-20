@@ -45,6 +45,18 @@ class adminController{
 		
 		
     }
+	
+	public function view_addNewUser(){
+		$id = "";
+		if($_SESSION['id']!=""){
+		return View::createView('addNewUser.php',
+			[]);}
+		else{
+			header('Location: login');}
+		
+		
+    }
+	
     public function getAllData(){
 		$query = "SELECT * from customers";
 		

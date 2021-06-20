@@ -2,6 +2,7 @@
 <a href="" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="">Help</a>
+<a href="addNewUser">Add new user</a>
 <p>Hi , <?php echo $username ?></p>
 <a href="logout">Logout</a>
 <table>

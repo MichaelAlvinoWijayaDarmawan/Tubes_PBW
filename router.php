@@ -30,6 +30,11 @@
 				$indexCtrl = new adminController();
 				echo $indexCtrl->view_addDelivery();
 				break;
+			case $baseURL.'/addNewUser':
+				require_once "controller/adminController.php";
+				$indexCtrl = new adminController();
+				echo $indexCtrl->view_addNewUser();
+				break;
 			default:
 				echo '404 Not Found';
 				break;
