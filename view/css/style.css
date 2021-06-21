@@ -1,19 +1,77 @@
-
-table {
-    width: 100%;
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+#customers {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 50%;
 }
 
-tr,th,td {
-	border:1px solid black;
-    text-align: center;
-    padding-top: 6px;
-    padding-bottom: 6px;
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
 }
 
-th {
-    color: navy;
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: center;
+  background-color: #006699;
+  color: white;
+}
+.atas {
+  position: absolute;
+  top: 6px;
+  right: 16px;
+  font-size: 18px;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+.fl{ float:left;
+}
+.btnlist {
+  background-color:	 #0099e6;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+.topnav {
+  overflow: hidden;
+  background-color: #333;
 }
 
+.topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.topnav a.active {
+  background-color: #006699;
+  color: white;
+}
 /* LOGIN */
 .account-page{
     padding: 50px;

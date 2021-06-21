@@ -1,13 +1,17 @@
 <h1>Halaman Admin</h1>
-<a href="" >Kirim</a>
+<div class="topnav">
+<a href="listUser" >Kirim</a>
 <a href="">Assign Driver</a>
-<a href="">Add New Users</a>
+<a href="" class="active">Add New Users</a>
 <a href="">Help</a>
+</div>
+<div class="atas">
 <a href="logout">Logout</a>
-
+</div>
+<div style="padding:16px">
 <fieldset>
 		<legend>Tambah Users Baru</legend>
-		<form method="POST" action="">
+		<form method="POST" action="addNewUser">
 		<label>Nama User  :
 		<input type="text" name="name"> </label>
 		</br> </br>
@@ -22,4 +26,6 @@
 		</br>
 		 
 		<input type="submit" value="ADD" name='addDataUser'>
+
 </fieldset>
+</div>

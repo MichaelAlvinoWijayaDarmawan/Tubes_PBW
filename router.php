@@ -50,7 +50,7 @@
 				require_once "controller/userController.php";
 				$indexCtrl = new UserController();
 				$indexCtrl->addAddress();
-				header('Location: ../customerAddress?id='.$_POST['id'] );
+				header('Location: customerAddress?id='.$_POST['id'] );
 				break;
 			case $baseURL.'/enter':
 				require_once "controller/loginController.php";
@@ -62,6 +62,12 @@
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();
 				$indexCtrl->addData();
+				break;
+			case $baseURL.'/addNewUser':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				$indexCtrl->addNewCustomer();
+				header('Location: listUser');
 				break;
 			default:
 				echo '404 Not Found';

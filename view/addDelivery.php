@@ -1,8 +1,10 @@
 <h1>Halaman Admin</h1>
-<a href="" >Kirim</a>
+<div class="topnav">
+<a href="" class="active" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="">Help</a>
-<a href="logout">Logout</a>
+</div>
+<a class="atas" href="logout">Logout</a>
 <br>
 <?php $idC=$_GET['idCustomer'];?>
 <form id="addDelivery" method="POST" action="addDelivery">

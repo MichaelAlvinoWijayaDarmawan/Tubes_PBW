@@ -1,9 +1,12 @@
 <h1>Halaman Customer</h1>
-<a href="" >Alamat</a>
-<a href="">Cek Status</a>
+<div class="topnav">
+<a href="" class="active" >Kirim</a>
+<a href="">Assign Driver</a>
+<a href="addNewUser">Add new user</a>
 <a href="">Help</a>
-
-<table style="border:1px solid black;">
+</div>
+<div style="padding:16px">
+<table id="customers">
 	<tr>
 		<th>No</th>
 		<th>Alamat Pengiriman</th>

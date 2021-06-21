@@ -1,11 +1,17 @@
 <h1>Halaman Admin</h1>
-<a href="" >Kirim</a>
-<a href="">Assign Driver</a>
-<a href="">Help</a>
-<a href="addNewUser">Add new user</a>
+<div class="atas">
 <p>Hi , <?php echo $username ?></p>
 <a href="logout">Logout</a>
-<table>
+</div>
+<div class="topnav">
+<a href="" class="active" >Kirim</a>
+<a href="">Assign Driver</a>
+<a href="addNewUser">Add new user</a>
+<a href="">Help</a>
+</div>
+
+<div style="padding:16px">
+<table id="customers">
 	<tr>
 		<th>User ID</th>
 		<th>Name</th>
@@ -20,15 +26,16 @@
 			echo "<td>".$row->getName()."</td>";
 			echo "<td>";
 			$idSelect = $row->getCustomerId();
-			echo "<form class = '' method='GET' action='addDelivery'>".
+			echo "<form class = 'fl'  method='GET' action='addDelivery'>".
 				"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
-				"<input type='submit' value='KIRIM' name='kirim' width='60px'></form>";
-			echo "<form class = '' method='GET' action='customerAddress'>".
+				"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>KIRIM</button></form>";
+			echo "<form  class = 'fl'  method='GET' action='customerAddress'>".
 				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<input type='submit' value='AddAddress' name='AddAddress' width='60px'></form>";
+				"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
 			echo "</td>";
 			echo "</tr>";
 			$i++;
 		}
 	?>
 </table>
+</div>

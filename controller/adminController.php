@@ -11,7 +11,7 @@ class AdminController{
         $this->db = new MySQLDB("localhost","root","","delivery");
 		session_start();
             $this->idAdmin = $_SESSION['id'];
-			$this->username = $_SESSION['username'];
+			$this->username = $_SESSION['name'];
     }
 
     public function view_admin(){
@@ -128,6 +128,20 @@ class AdminController{
 		$query = "INSERT INTO delivery_details (delivery_id,item_id,quantity,unit) 
 			VALUES ('$deliveryId','$itemsId','$itemQuantity','$itemUnit')";
 		$result_query = $this->db->executeNonSelectQuery($query);
+	}
+	public function addNewCustomer(){
+		$customerName = $_POST['name'];
+		$customerPassword = $_POST['password'];
+		$customerAddress = $_POST['alamat'];
+		$description = $_POST['deskripsi'];
+			$query = "INSERT INTO customers (name,password) VALUES ('$customerName','$customerPassword')";
+				$this->db->executeNonSelectQuery($query);
+			$query = "SELECT id from customers order by id desc limit 1";
+				$result_query = $this->db->executeSelectQuery($query);
+				$customerId = $result_query[0]['id'];
+					$query = "INSERT INTO addresses (customer_id,address,description) 
+							VALUES ('$customerId','$customerAddress','$description')";
+					$this->db->executeNonSelectQuery($query);
 	}
 }
 ?>
