@@ -39,7 +39,7 @@ class DriversController{
         $query_result = $this->db->executeSelectQuery($query);
 		$result = [];
 		foreach ($query_result as $key => $value){
-			$result[] = new Deliveries("",$value['cName'],"",$value['dName'],"","","","");
+			$result[] = new Deliveries("",$value['cName'],"",$value['dName'],"","","","","","");
 		}
 		return $result;
 	}

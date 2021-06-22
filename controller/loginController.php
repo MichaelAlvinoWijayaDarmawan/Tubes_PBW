@@ -16,7 +16,7 @@ class LoginController{
                     header('Location: listUser');
                 }
                 else if($_SESSION['role'] == "customers"){
-                    header('Location: ');
+                    header('Location: customerPage');
                 }
                 else if($_SESSION['role'] == "manager"){
                     header('Location: ');

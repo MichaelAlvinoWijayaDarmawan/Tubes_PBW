@@ -40,6 +40,11 @@
 				$indexCtrl = new DriversController();
 				echo $indexCtrl->view_drivers();
 				break;
+			case $baseURL.'/customerPage':
+				require_once "controller/userController.php";
+				$indexCtrl = new UserController();
+				echo $indexCtrl->view_customer();
+				break;
 			default:
 				echo '404 Not Found';
 				break;
