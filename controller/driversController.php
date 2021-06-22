@@ -22,7 +22,7 @@ class DriversController{
 		// 		"result" => $result
 		// 	]);
 
-        if($_SESSION['id']!=""){
+        if($_SESSION['id']!="" && $_SESSION['role']=="drivers"){
             return View::createView('driverPage.php',
                 [	
                 "idDriver" => $this->id,

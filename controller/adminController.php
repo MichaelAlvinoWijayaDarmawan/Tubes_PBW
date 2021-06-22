@@ -16,7 +16,7 @@ class AdminController{
 
     public function view_admin(){
         $result = $this ->getAllData();
-		if($_SESSION['id']!=""){
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
 		return View::createView('listUser.php',
 			[	
 			"idAdmin" => $this->idAdmin,
