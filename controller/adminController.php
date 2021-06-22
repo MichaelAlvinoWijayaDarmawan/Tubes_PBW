@@ -99,7 +99,11 @@ class AdminController{
 		$itemCategory = $_POST['jenisBarang'];
 		$itemQuantity = $_POST['banyakBarang'];
 		$itemUnit = $_POST['satuanBarang'];
-		
+
+		$itemName = $this->db->escapeString($itemName);
+		$itemCategory = $this->db->escapeString($itemCategory);
+		$itemQuantity = $this->db->escapeString($itemQuantity);
+		$itemUnit = $this->db->escapeString($itemUnit);
 
 		$query = "INSERT INTO items (name,category) VALUES ('$itemName','$itemCategory')";
 		$this->db->executeNonSelectQuery($query);
@@ -134,6 +138,12 @@ class AdminController{
 		$customerPassword = $_POST['password'];
 		$customerAddress = $_POST['alamat'];
 		$description = $_POST['deskripsi'];
+
+		$customerName = $this->db->escapeString($customerName);
+		$customerPassword = $this->db->escapeString($customerPassword);
+		$customerAddress = $this->db->escapeString($customerAddress);
+		$description = $this->db->escapeString($description);
+
 			$query = "INSERT INTO customers (name,password) VALUES ('$customerName','$customerPassword')";
 				$this->db->executeNonSelectQuery($query);
 			$query = "SELECT id from customers order by id desc limit 1";

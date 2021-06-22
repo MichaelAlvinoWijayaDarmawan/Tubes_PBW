@@ -8,6 +8,7 @@ class Drivers{
 	public function __construct($id,$name,$start_work_date,$end_work_date){
 		$this->id = $id;
 		$this->name = $name;
+		$this->customerName = $customerName;
 		$this->start_work_date = $start_work_date;
 		$this->end_work_date = $end_work_date;
 	}

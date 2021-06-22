@@ -1,19 +1,19 @@
 <?php
 class Deliveries{
     protected $id;
-	protected $customer_id;
+	protected $customer_name;
     protected $destination_id;
-    protected $driver_id;
+    protected $driver_name;
     protected $scheduleded_date;
     protected $start_datetime;
     protected $end_datetime;
     protected $status;
 	
-	public function __construct($id,$customer_id,$destination_id,$driver_id,$scheduleded_date,$start_datetime,$end_datetime,$status){
+	public function __construct($id,$customer_name,$destination_id,$driver_name,$scheduleded_date,$start_datetime,$end_datetime,$status){
 		$this->id = $id;
-		$this->customer_id = $customer_id;
+		$this->customer_name = $customer_name;
 		$this->destination_id = $destination_id;
-		$this->driver_id = $driver_id;
+		$this->driver_name = $driver_name;
 		$this->scheduleded_date = $scheduleded_date;
         $this->start_datetime = $start_datetime;
         $this->end_datetime = $end_datetime;
@@ -23,14 +23,14 @@ class Deliveries{
 	public function getId(){
 		return $this->id;
 	}
-    public function getCustomerId(){
-		return $this->customer_id;
+    public function getCustomerName(){
+		return $this->customer_name;
 	}
     public function getDestinationId(){
 		return $this->destination_id;
 	}
-	public function getDriverId(){
-		return $this->driver_id;
+	public function getDriverName(){
+		return $this->driver_name;
 	}
 	public function getSchedulededData(){
 		return $this->scheduleded_date;
