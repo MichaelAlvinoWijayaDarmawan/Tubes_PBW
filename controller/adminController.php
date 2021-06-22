@@ -29,7 +29,7 @@ class AdminController{
     }
 	public function view_addDelivery(){
 		$id = "";
-		if($_SESSION['id']!=""){
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
 			if(isset($_GET['idCustomer']) && $_GET['idCustomer'] != ""){
 				$id = $this->db->escapeString($_GET['idCustomer']);
 			}
@@ -48,7 +48,7 @@ class AdminController{
 	
 	public function view_addNewUser(){
 		$id = "";
-		if($_SESSION['id']!=""){
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
 		return View::createView('addNewUser.php',
 			[]);}
 		else{
@@ -152,6 +152,46 @@ class AdminController{
 					$query = "INSERT INTO addresses (customer_id,address,description) 
 							VALUES ('$customerId','$customerAddress','$description')";
 					$this->db->executeNonSelectQuery($query);
+	}
+	 public function view_addAddress(){
+		$id = "";
+		if(isset($_GET['id']) && $_GET['id'] != ""){
+			$id = $this->db->escapeString($_GET['id']);
+		}
+		$result = $this ->getAddress($id);
+		 if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
+		return View::createView('customerAddress.php',
+			[
+				"id" => $id,
+				"result" => $result
+		 ]);}
+		  else{
+                header('Location: login');
+            }
+    }
+	
+	public function getAddress($id){
+		$query = "SELECT customers.id,customers.name,addresses.address,addresses.id,addresses.description FROM customers left join addresses on customers.id = addresses.customer_id where customer_id='$id'";
+		
+		$query_result = $this->db->executeSelectQuery($query);
+		$result = [];
+		foreach ($query_result as $key => $value){
+			$result[] = new Customer($value['id'],$value['name'],$value['address'],$value['id'],$value['description']);
+		}
+		return $result;
+	}
+	
+	public function addAddress(){
+		$id = $_POST['id'];
+		$alamat = $_POST['alamat'];
+		$deskripsi = $_POST['deskripsi'];
+		if (isset($id) && $id != ""){
+			$id = $this->db->escapeString($id);
+			$alamat = $this->db->escapeString($alamat);
+			$deskripsi = $this->db->escapeString($deskripsi);
+			$query = "INSERT INTO addresses(customer_id,address,description) VALUES ('$id','$alamat','$deskripsi')";
+			$this->db->executeNonSelectQuery($query);
+		}
 	}
 }
 ?>

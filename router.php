@@ -16,9 +16,9 @@
 				header('Location: login');
 				break;
 			case $baseURL.'/customerAddress':
-				require_once "controller/userController.php";
-				$indexCtrl = new UserController();
-				echo $indexCtrl->view_index();
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->view_addAddress();
 				break;
 			case $baseURL.'/listUser':
 				require_once "controller/adminController.php";
@@ -47,8 +47,8 @@
 	}else if($_SERVER["REQUEST_METHOD"] == "POST"){
 		switch ($url) {
 			case $baseURL.'/customerAddress':
-				require_once "controller/userController.php";
-				$indexCtrl = new UserController();
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
 				$indexCtrl->addAddress();
 				header('Location: customerAddress?id='.$_POST['id'] );
 				break;

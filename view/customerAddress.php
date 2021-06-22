@@ -1,4 +1,4 @@
-<h1>Halaman Customer</h1>
+<h1>Halaman Admin</h1>
 <div class="topnav">
 <a href="" class="active" >Kirim</a>
 <a href="">Assign Driver</a>
