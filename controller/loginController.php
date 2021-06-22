@@ -22,7 +22,7 @@ class LoginController{
                     header('Location: ');
                 }
                  else if($_SESSION['driver'] == "drivers"){
-                    header('Location: ');
+                    header('Location: driverPage');
                 }
             //$username = $_SESSION['username'];
             //$id = $_SESSION['id'];
