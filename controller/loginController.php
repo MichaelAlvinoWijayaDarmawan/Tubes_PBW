@@ -21,15 +21,16 @@ class LoginController{
                 else if($_SESSION['role'] == "manager"){
                     header('Location: ');
                 }
-                 else if($_SESSION['driver'] == "drivers"){
+                else if($_SESSION['role'] == "drivers"){
                     header('Location: driverPage');
                 }
             //$username = $_SESSION['username'];
             //$id = $_SESSION['id'];
 
         }else{
-        return View::createView('login.php',
-            []);}
+            return View::createView('login.php',
+            []);
+        }
     }
 	
         public function login(){

@@ -1,5 +1,5 @@
 <h1>Halaman Driver</h1>
-<p>Hi , <?php echo "Driver" ?></p>
+<p>Hi , <?php echo $username ?></p>
 <a href="logout">Logout</a>
 <table>
 	<tr>
