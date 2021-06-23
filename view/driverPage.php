@@ -1,7 +1,13 @@
-<h1>Halaman Driver</h1>
-<p>Hi , <?php echo $username ?></p>
-<a href="logout">Logout</a>
-<table>
+<?php 
+	$tipe = "Driver";
+?>
+
+<div class="topnav">
+<a href="" class="active" >Kirim</a>
+<a href="">Help</a>
+</div>
+
+<table id="table_view">
 	<tr>
 		<th>No</th>
 		<th>Customer</th>
@@ -16,8 +22,8 @@
 			echo "<td>".$row->getCustomerName()."</td>";
 			echo "<td>".$row->getDriverName()."</td>";
 			echo "<td>";
-			echo "<form class = '' method='GET' action='driverPage'>".
-				"<input type='submit' value='KIRIM' name='kirim'></form>";
+			echo "<form class = 'fl' method='GET' action='driverPage'>".
+				"<button class ='btnlist' type='submit' value='KIRIM' name='kirim'>Kirim</></form>";
 			echo "</td>";
 			echo "</tr>";
 			$i++;

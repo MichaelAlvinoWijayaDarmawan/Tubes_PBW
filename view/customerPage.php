@@ -1,15 +1,12 @@
-<h1>Halaman Customer</h1>
-<div class="atas">
-<p>Hi , <?php echo $username ?></p>
-<a href="logout">Logout</a>
-</div>
+<?php 
+	$tipe = "Customer";
+?>
 <div class="topnav">
 <a href="" class="active" >Cek Status</a>
 <a href="">Help</a>
 </div>
 
-<div style="padding:16px">
-<table id="customers">
+<table id="table_view">
 	<tr>
 		<th>No</th>
 		<th>Nama</th>
@@ -34,4 +31,3 @@
 		}
 	?>
 </table>
-</div>

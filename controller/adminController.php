@@ -159,7 +159,7 @@ class AdminController{
 			$id = $this->db->escapeString($_GET['id']);
 		}
 		$result = $this ->getAddress($id);
-		 if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
 		return View::createView('customerAddress.php',
 			[
 				"id" => $id,
@@ -193,6 +193,19 @@ class AdminController{
 			$this->db->executeNonSelectQuery($query);
 		}
 	}
+
+	public function deleteCustomer(){
+		$id = "";
+		if(isset($_GET['id']) && $_GET['id'] != "" && $_GET['deleteCustomer']!= ""){
+			$id = $this->db->escapeString($_GET['id']);
+		}
+		$query = " DELETE FROM addresses WHERE customer_id = '$id'";
+		$this->db->executeNonSelectQuery($query);
+		$query = " DELETE FROM deliveries WHERE customer_id = '$id'";
+		$this->db->executeNonSelectQuery($query);
+		$query = "DELETE FROM customers WHERE id = '$id'";
+		$this->db->executeNonSelectQuery($query);
+    }
 }
 ?>
 

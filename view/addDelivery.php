@@ -1,11 +1,13 @@
-<h1>Halaman Admin</h1>
+<?php 
+	$tipe = "Admin";
+	$username = "Admin";
+?>
+
 <div class="topnav">
 <a href="" class="active" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="">Help</a>
-</div>
-<a class="atas" href="logout">Logout</a>
-<br>
+
 <?php $idC=$_GET['idCustomer'];?>
 <form id="addDelivery" method="POST" action="addDelivery">
 <input type="hidden" name="idCustomer" value="<?php echo $idC; ?>" />

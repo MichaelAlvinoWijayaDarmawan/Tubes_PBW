@@ -1,12 +1,16 @@
-<h1>Halaman Admin</h1>
+<?php 
+	$tipe = "Admin";
+	$username = "Admin";
+?>
+
 <div class="topnav">
 <a href="" class="active" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="addNewUser">Add new user</a>
 <a href="">Help</a>
 </div>
-<div style="padding:16px">
-<table id="customers">
+
+<table id="table_view">
 	<tr>
 		<th>No</th>
 		<th>Alamat Pengiriman</th>

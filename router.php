@@ -45,6 +45,12 @@
 				$indexCtrl = new UserController();
 				echo $indexCtrl->view_customer();
 				break;
+			case $baseURL.'/deleteCustomer':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->deleteCustomer();
+				header('Location: listUser');
+				break;
 			default:
 				echo '404 Not Found';
 				break;

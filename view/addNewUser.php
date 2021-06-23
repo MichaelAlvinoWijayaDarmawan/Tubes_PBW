@@ -1,14 +1,16 @@
-<h1>Halaman Admin</h1>
+<?php 
+	$tipe = "Admin";
+	$username = "Admin";
+?>
+
 <div class="topnav">
 <a href="listUser" >Kirim</a>
 <a href="">Assign Driver</a>
 <a href="" class="active">Add New Users</a>
 <a href="">Help</a>
 </div>
-<div class="atas">
-<a href="logout">Logout</a>
-</div>
-<div style="padding:16px">
+
+
 <fieldset>
 		<legend>Tambah Users Baru</legend>
 		<form method="POST" action="addNewUser">
@@ -28,4 +30,3 @@
 		<input type="submit" value="ADD" name='addDataUser'>
 
 </fieldset>
-</div>

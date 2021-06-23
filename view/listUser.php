@@ -1,8 +1,5 @@
-<h1>Halaman Admin</h1>
-<div class="atas">
-<p>Hi , <?php echo $username ?></p>
-<a href="logout">Logout</a>
-</div>
+<?php $tipe = "Admin"; ?>
+
 <div class="topnav">
 <a href="" class="active" >Kirim</a>
 <a href="">Assign Driver</a>
@@ -10,11 +7,11 @@
 <a href="">Help</a>
 </div>
 
-<div style="padding:16px">
-<table id="customers">
+<table id="table_view">
 	<tr>
 		<th>User ID</th>
 		<th>Name</th>
+		<th>Pengiriman</th>
 		<th>Aksi</th>
 	</tr>
 	<?php
@@ -29,13 +26,21 @@
 			echo "<form class = 'fl'  method='GET' action='addDelivery'>".
 				"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
 				"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>KIRIM</button></form>";
+			
+			echo "</td>";
+			echo "<td>";
 			echo "<form  class = 'fl'  method='GET' action='customerAddress'>".
 				"<input type='hidden' name='id' value='$idSelect'/>" .
 				"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
+			echo "<form  class = 'fl'  method='GET' action='deleteCustomer'>".
+				"<input type='hidden' name='id' value='$idSelect'/>" .
+				"<button class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
+			echo "<form  class = 'fl'  method='GET' action='editCustomer'>".
+				"<input type='hidden' name='id' value='$idSelect'/>" .
+				"<button class ='btnlist' type='submit' value='editCustomer' name='editCustomer' width='60px'><i class='fa fa-edit'></i></button></form>";
 			echo "</td>";
 			echo "</tr>";
 			$i++;
 		}
 	?>
 </table>
-</div>
