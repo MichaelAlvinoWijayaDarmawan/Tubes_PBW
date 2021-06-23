@@ -12,21 +12,25 @@
 
 
 <fieldset>
-		<legend>Tambah Users Baru</legend>
+		<legend>Tambah User Baru</legend>
+		<br>
 		<form method="POST" action="addNewUser">
 		<label>Nama User  :
+		<br>
 		<input type="text" name="name"> </label>
-		</br> </br>
+		<br><br>
 		<label>Password  :
+		<br>
 		<input type="password" name="password"> </label>
-		</br> </br>
+		<br><br>
 		<label>Alamat Pengiriman :
+		<br>
 		<input type="text" name="alamat"> </label>
-		</br> </br>
-		<label>Deskripsi:
+		<br><br>
+		<label>Deskripsi :
+		<br>
 		<input type="text" name="deskripsi"></label>
 		</br>
-		 
-		<input type="submit" value="ADD" name='addDataUser'>
+		<button class="btnlist" type="submit" value="ADD" name='addDataUser'>Tambah</button>
 
 </fieldset>

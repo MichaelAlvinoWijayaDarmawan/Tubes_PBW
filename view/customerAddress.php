@@ -10,6 +10,23 @@
 <a href="">Help</a>
 </div>
 
+<fieldset>
+		<legend>Tambah Alamat</legend>
+		<br>
+		<form method="POST" action="customerAddress">
+		<label>Alamat Pengiriman :
+		<br>
+		<input type="text" name="alamat"> </label>
+		<br><br>
+		<label>Deskripsi:
+		<br>
+		<input type="text" name="deskripsi"></label>
+		<br>
+		<input type="hidden" name='id' value='<?php  echo $_GET['id'] ?>'/>
+		<button class = "btnlist" type="submit" value="ADD" name='addAlamat'>Tambah</button>
+		</form>	
+</fieldset>
+<hr>
 <table id="table_view">
 	<tr>
 		<th>No</th>
@@ -28,17 +45,4 @@
 	}
 	?>
 </table>
-<fieldset>
-		<legend>Tambah Alamat</legend>
-		<form method="POST" action="customerAddress">
-		<label>Alamat Pengiriman :
-		<input type="text" name="alamat"> </label>
-		</br> </br>
-		<label>Deskripsi:
-		<input type="text" name="deskripsi"></label>
-		</br>
-		<input type="hidden" name='id' value='<?php  echo $_GET['id'] ?>'/>
-		 
-		<input type="submit" value="ADD" name='addAlamat'>
-</fieldset>
-</form>	
+

@@ -25,7 +25,7 @@
 			$idSelect = $row->getCustomerId();
 			echo "<form class = 'fl'  method='GET' action='addDelivery'>".
 				"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>KIRIM</button></form>";
+				"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>Kirim</button></form>";
 			
 			echo "</td>";
 			echo "<td>";
