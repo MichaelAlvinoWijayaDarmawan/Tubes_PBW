@@ -12,7 +12,7 @@
 		<th>No</th>
 		<th>Customer</th>
 		<th>Driver</th>
-		<th>Status</th>
+		<th>Aksi</th>
 	</tr>
 	<?php
 		$i=1;
@@ -22,8 +22,16 @@
 			echo "<td>".$row->getCustomerName()."</td>";
 			echo "<td>".$row->getDriverName()."</td>";
 			echo "<td>";
-			echo "<form class = 'fl' method='GET' action='driverPage'>".
-				"<button class ='btnlist' type='submit' value='KIRIM' name='kirim'>Kirim</></form>";
+				$idSelect = $row->getId();
+			if($row->getEndDateTime()=='0000-00-00 00:00:00'){
+					echo "<form class = 'fl' method='POST' action='driverPage/konfirmasi'>".
+					"<input type='hidden' name='id' value='$idSelect'/>" .
+				"<button class ='btnlist' type='submit' value='Konfirmasi' name='konfirmasi'>Konfirmasi Paket Sampai</></form>";
+				}
+			else{
+				echo "<p style='color:green';>Paket telah diterima</p>"."</td>";
+			}
+		
 			echo "</td>";
 			echo "</tr>";
 			$i++;

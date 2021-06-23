@@ -80,6 +80,12 @@
 				$indexCtrl->addNewCustomer();
 				header('Location: listUser');
 				break;
+			case $baseURL.'/driverPage/konfirmasi':
+				require_once "controller/driversController.php";
+				$driverCtrl = new DriversController();
+				$driverCtrl-> updateStatus();
+				header('Location: ../driverPage');
+				break;
 			default:
 				echo '404 Not Found';
 				break;

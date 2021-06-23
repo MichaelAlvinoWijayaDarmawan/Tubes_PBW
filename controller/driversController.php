@@ -35,13 +35,25 @@ class DriversController{
     }
     public function getAllData(){
         $id = $this->id;
-		$query = "SELECT c.name as cName,dr.name as dName from deliveries d inner join customers c on d.customer_id = c.id inner join drivers dr on  d.driver_id = dr.id where dr.id = $id";
+		$query = "SELECT d.id as dId, c.name as cName,dr.name as dName, d.end_datetime from deliveries d inner join customers c on d.customer_id = c.id inner join drivers dr on  d.driver_id = dr.id where dr.id = $id";
         $query_result = $this->db->executeSelectQuery($query);
 		$result = [];
 		foreach ($query_result as $key => $value){
-			$result[] = new Deliveries("",$value['cName'],"",$value['dName'],"","","","","","");
+			$result[] = new Deliveries($value['dId'],$value['cName'],"",$value['dName'],"","","",$value['end_datetime'],"","");
 		}
 		return $result;
 	}
+	
+	public function updateStatus(){
+		$id = $_POST['id'];
+		if (isset($id) && $id != ""){
+			$id = $this->db->escapeString($id);
+			$tanggalSampai = date("Y/m/d H:i:s");
+			$query = "UPDATE deliveries SET end_datetime='$tanggalSampai', status='Sudah diterima' WHERE id='$id'";
+			$this->db->executeNonSelectQuery($query);
+		}
+	}
+	
+	
 }
 ?>
