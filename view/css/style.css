@@ -144,3 +144,27 @@ fieldset{
   margin-bottom: 20px;
   width: 300px;
 }
+
+#container-form{
+  max-width: 70%;
+  margin: auto;
+}
+
+#radiobtn{
+  float: left;
+  margin-right: 10px;
+  width: auto;
+}
+
+#inputradiobtn{
+  width: 200px;
+  height: 30px;
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+#select{
+  width: 450px;
+  height: 30px;
+
+}
