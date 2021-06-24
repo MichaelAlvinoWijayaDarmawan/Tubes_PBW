@@ -37,7 +37,7 @@ class LoginController{
             $Username = $_POST['name'];
             $Password = $_POST['password'];
             $Role = $_POST['role'];
-            $result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name = '$Username' AND password = '$Password'");
+		$result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name = \"$Username\" AND password = '$Password'");
             if(isset($result[0]['name']) && $result[0]['password'] != ''){
                 session_start();
                 $_SESSION['name'] = $result[0]['name'];
