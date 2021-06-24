@@ -49,7 +49,7 @@ class DriversController{
 		if (isset($id) && $id != ""){
 			$id = $this->db->escapeString($id);
 			$tanggalSampai = date("Y/m/d H:i:s");
-			$query = "UPDATE deliveries SET end_datetime='$tanggalSampai', status='Sudah diterima' WHERE id='$id'";
+			$query = "UPDATE deliveries SET end_datetime='$tanggalSampai', status='Sudah Diterima' WHERE id='$id'";
 			$this->db->executeNonSelectQuery($query);
 		}
 	}

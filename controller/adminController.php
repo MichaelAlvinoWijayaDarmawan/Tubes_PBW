@@ -124,7 +124,7 @@ class AdminController{
 			$datetime = date_format($date,"Y/m/d H:i:s");
 			$tanggalKirim = $datetime;
 			$query = "INSERT INTO deliveries (customer_id,destination_id,driver_id,scheduled_datetime,start_datetime,end_datetime,status) 
-				VALUES ('$customerId','$deliveryId','$driverId','$tanggalKirim','','','$mode')";
+				VALUES ('$customerId','$addressId','$driverId','$tanggalKirim','','','$mode')";
 		}
 		$this->db->executeNonSelectQuery($query);
 		$query = "SELECT id from deliveries order by id desc limit 1 ";
