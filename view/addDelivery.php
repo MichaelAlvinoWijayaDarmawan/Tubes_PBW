@@ -12,7 +12,7 @@
 <br>
 <?php $idC=$_GET['idCustomer'];?>
 <div id = "container-form">
-	<form  id="addDelivery" method="POST" action="addDelivery">
+	<form  id="addDelivery" method="POST" action="listUser/addDelivery">
 		<input type="hidden" name="idCustomer" value="<?php echo $idC; ?>" />
 		<label>Nama Customer :
 			<br>

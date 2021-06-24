@@ -79,9 +79,10 @@
 				$login->login();
 				header('Location: login');
 				break;
-			case $baseURL.'/addDelivery':
+			case $baseURL.'/listUser/addDelivery':
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();
+				header('Location: ../listUser');
 				$indexCtrl->addData();
 				break;
 			case $baseURL.'/addNewUser':
