@@ -1,5 +1,6 @@
 <?php 
 	$tipe = "Admin"; 
+	$username = "Admin";
 ?>
 
 <div class="topnav">
@@ -8,10 +9,11 @@
 <a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
+
 <form class = ''  method='GET' action='filter'>
 	<fieldset class="search">
 		<legend>Search by Name</legend>
-		<input class="inputSearch" type="text" name="filter" value="" required>
+		<input class="inputSearch" type="text" name="filter" value="">
 		<button class="btnSearch" type="submit" value="SEARCH">Cari</button>
 	</fieldset>
 </form>
@@ -54,11 +56,5 @@
 </table>
 <br>
 <hr>
-<?php 
-for ($i=1; $i<=$pageCount ; $i++){ ?>
-	<form  class = 'fl'  method='POST' action='pagination'><button class="btnlist" name = "page" value = <?php echo ($i-1)*10; ?>><?php echo $i; ?></button></form>
-<?php 
-} 
-?>
+
 <br><br><br>
-<hr>

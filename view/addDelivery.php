@@ -4,8 +4,9 @@
 ?>
 
 <div class="topnav">
-<a href="" class="active" >Kirim</a>
-<a href="">Assign Driver</a>
+<a href="listUser" class="active" >Kirim</a>
+<a href="">Tambah Driver Baru</a>
+<a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
 <br>
@@ -49,12 +50,12 @@
 		<label for="status">Kirim Sekarang</label>
 		<br>
 		<input id = "radiobtn" type="radio" name="status" value="Sekarang" onclick = 'setDisable()' checked/>
-		<input id = "inputradiobtn" type="text" value="<?php echo date("d-m-Y")?>" placeholder="<?php echo date("d-m-Y")?>" disabled>
+		<input class = "inputradiobtn" type="text" value="<?php echo date("d-m-Y")?>" placeholder="<?php echo date("d-m-Y")?>" disabled>
 		<br>
 		<label for="status">Kirim Nanti</label>
 		<br>
 		<input id = "radiobtn" type="radio" name="status" value="Nanti" onclick = 'setEnable()'/>
-		<input id = "inputradiobtn" type="date" name="tanggalKirim" id="tanggalKirim" disabled/>
+		<input class = "inputradiobtn" type="date" name="tanggalKirim" id="tanggalKirim" disabled/>
 
 	
 

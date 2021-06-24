@@ -5,8 +5,8 @@
 
 <div class="topnav">
 <a href="listUser" >Kirim</a>
-<a href="">Assign Driver</a>
-<a href="" class="active">Add New Users</a>
+<a href="">Tambah Driver Baru</a>
+<a href="addNewUser" class="active">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
 
@@ -17,19 +17,19 @@
 		<form method="POST" action="addNewUser">
 		<label>Nama User  :
 		<br>
-		<input type="text" name="name"> </label>
+		<input type="text" name="name" required> </label>
 		<br><br>
 		<label>Password  :
 		<br>
-		<input type="password" name="password"> </label>
+		<input type="password" name="password" required> </label>
 		<br><br>
 		<label>Alamat Pengiriman :
 		<br>
-		<input type="text" name="alamat"> </label>
+		<input type="text" name="alamat" required> </label>
 		<br><br>
 		<label>Deskripsi :
 		<br>
-		<input type="text" name="deskripsi"></label>
+		<input type="text" name="deskripsi" required></label>
 		</br>
 		<button class="btnlist" type="submit" value="ADD" name='addDataUser'>Tambah</button>
 

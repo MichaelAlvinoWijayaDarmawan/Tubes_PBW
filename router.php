@@ -51,6 +51,11 @@
 				echo $indexCtrl->deleteCustomer();
 				header('Location: listUser');
 				break;
+			case $baseURL.'/filter':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->view_search();
+				break;
 			default:
 				echo '404 Not Found';
 				break;
@@ -85,6 +90,18 @@
 				$driverCtrl = new DriversController();
 				$driverCtrl-> updateStatus();
 				header('Location: ../driverPage');
+				break;
+			case $baseURL.'/pagination':
+				require_once "controller/adminController.php";
+				$driverCtrl = new AdminController();
+				$driverCtrl-> getPage();
+				header('Location: listUser?page='.$_POST['page'] );
+				break;
+			case $baseURL.'/filter':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				$indexCtrl->getSearch();
+				header('Location: search');
 				break;
 			default:
 				echo '404 Not Found';

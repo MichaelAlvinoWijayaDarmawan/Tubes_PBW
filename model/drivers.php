@@ -10,7 +10,6 @@ class Drivers{
 		$this->name = $name;
 		$this->start_work_date = $start_work_date;
 		$this->end_work_date = $end_work_date;
-		$this->end_datetime = $end_datetime;
 	}
 
 	public function getIdDriver(){

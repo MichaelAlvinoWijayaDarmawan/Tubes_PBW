@@ -156,7 +156,7 @@ fieldset{
   width: auto;
 }
 
-#inputradiobtn{
+.inputradiobtn{
   width: 200px;
   height: 30px;
   margin: 10px 0;

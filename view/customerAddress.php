@@ -4,9 +4,9 @@
 ?>
 
 <div class="topnav">
-<a href="" class="active" >Kirim</a>
-<a href="">Assign Driver</a>
-<a href="addNewUser">Add new user</a>
+<a href="listUser" class="active" >Kirim</a>
+<a href="">Tambah Driver Baru</a>
+<a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
 
@@ -16,11 +16,11 @@
 		<form method="POST" action="customerAddress">
 		<label>Alamat Pengiriman :
 		<br>
-		<input type="text" name="alamat"> </label>
+		<input type="text" name="alamat" required> </label>
 		<br><br>
 		<label>Deskripsi:
 		<br>
-		<input type="text" name="deskripsi"></label>
+		<input type="text" name="deskripsi" required></label>
 		<br>
 		<input type="hidden" name='id' value='<?php  echo $_GET['id'] ?>'/>
 		<button class = "btnlist" type="submit" value="ADD" name='addAlamat'>Tambah</button>

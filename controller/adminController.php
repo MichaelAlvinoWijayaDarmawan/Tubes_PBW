@@ -7,6 +7,7 @@ require_once "model/drivers.php";
 class AdminController{
     protected $db;
 	protected $id;
+	protected $pageCount;
     public function __construct(){
         $this->db = new MySQLDB("localhost","root","","delivery");
 		session_start();
@@ -15,12 +16,14 @@ class AdminController{
     }
 
     public function view_admin(){
-        $result = $this ->getAllData();
+        $result = $this ->getPage();
+		$pageCount = $this ->getCount();
 		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
 		return View::createView('listUser.php',
 			[	
 			"idAdmin" => $this->idAdmin,
 			"username" => $this->username,
+			"pageCount" => $pageCount,
 			"result" => $result
 			]);}
 		else{
@@ -40,7 +43,8 @@ class AdminController{
 				"id" => $id,
 				"result" => $result,
 				"result2" => $result2
-		]);}
+			]);
+		}
 		else{
 			header('Location: login');
 		}
@@ -133,6 +137,7 @@ class AdminController{
 			VALUES ('$deliveryId','$itemsId','$itemQuantity','$itemUnit')";
 		$result_query = $this->db->executeNonSelectQuery($query);
 	}
+
 	public function addNewCustomer(){
 		$customerName = $_POST['name'];
 		$customerPassword = $_POST['password'];
@@ -153,7 +158,8 @@ class AdminController{
 							VALUES ('$customerId','$customerAddress','$description')";
 					$this->db->executeNonSelectQuery($query);
 	}
-	 public function view_addAddress(){
+
+	public function view_addAddress(){
 		$id = "";
 		if(isset($_GET['id']) && $_GET['id'] != ""){
 			$id = $this->db->escapeString($_GET['id']);
@@ -205,6 +211,76 @@ class AdminController{
 		$this->db->executeNonSelectQuery($query);
 		$query = "DELETE FROM customers WHERE id = '$id'";
 		$this->db->executeNonSelectQuery($query);
+    }
+
+	public function getPage(){
+		$result = $this ->getAllData();
+		//pagination
+		$limit = 10;
+		if(isset($_GET['page']) && $_GET['page'] !=""){
+			$page = $this->db->escapeString($_GET['page']);
+			$query = "SELECT * from customers order by id desc limit $page , $limit";
+			$query_result = $this->db->executeSelectQuery($query);
+			$result = [];
+			foreach ($query_result as $key => $value){
+				$result[] = new Customer($value['id'],$value['name'],"","","");
+			}
+		}
+		else{
+			$page = 0;
+			$query = "SELECT * from customers order by id desc limit $page, $limit";
+			$query_result = $this->db->executeSelectQuery($query);
+			$result = [];
+			foreach ($query_result as $key => $value){
+				$result[] = new Customer($value['id'],$value['name'],"","","");
+			}
+		}
+		return $result;
+		
+	}
+
+	public function getCount(){
+		$result = $this ->getAllData();
+		//pagination
+		$limit = 10;
+		$pageCount = ceil(count($result)/$limit);
+		return $pageCount;
+	}
+
+	public function getSearch(){
+		//filter
+		$name = "";
+		if(isset($_GET['filter']) && $_GET['filter']!=""){ 
+			$name = $_GET['filter'];
+			if(isset($name)&& $name !=""){
+				$name = $this->db->escapeString($name);
+				$query = "SELECT * from customers WHERE name LIKE '%$name%'";
+			}
+			$query_result = $this->db->executeSelectQuery($query);
+			foreach ($query_result as $key => $value){
+				$result[] = new Customer($value['id'],$value['name'],"","","");
+			}
+		}
+		else{
+			header('Location: listUser');
+		}
+		
+		return $result;
+	}
+
+	public function view_search(){
+		$id = "";
+		$result = $this ->getSearch();
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
+		return View::createView('search.php',
+				[
+					"result" => $result
+				]
+			);
+		}
+		else{
+			header('Location: login');
+		}
     }
 }
 ?>
