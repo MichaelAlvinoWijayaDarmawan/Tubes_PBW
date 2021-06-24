@@ -5,7 +5,7 @@
 
 <div class="topnav">
 <a href="listUser" class="active" >Kirim</a>
-<a href="">Tambah Driver Baru</a>
+<a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
@@ -82,7 +82,7 @@
 		</label>
 		<br>
 		<button class="btnlist" type="submit" value="SUBMIT">Submit</button>
-		<button class="btnlist" type="submit"><a href="listUser">Back</a></button>
+		<a href="listUser">Back</a>
 		<br>
 	</form>
 

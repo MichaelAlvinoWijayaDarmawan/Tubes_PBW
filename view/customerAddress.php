@@ -5,15 +5,15 @@
 
 <div class="topnav">
 <a href="listUser" class="active" >Kirim</a>
-<a href="">Tambah Driver Baru</a>
+<a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
 
 <fieldset>
-		<legend>Tambah Alamat</legend>
-		<br>
-		<form method="POST" action="customerAddress">
+	<legend>Tambah Alamat</legend>
+	<br>
+	<form method="POST" action="customerAddress">
 		<label>Alamat Pengiriman :
 		<br>
 		<input type="text" name="alamat" required> </label>
@@ -24,7 +24,8 @@
 		<br>
 		<input type="hidden" name='id' value='<?php  echo $_GET['id'] ?>'/>
 		<button class = "btnlist" type="submit" value="ADD" name='addAlamat'>Tambah</button>
-		</form>	
+		<button class="btnlist" type="submit"><a href="listUser">Back</a></button>
+	</form>	
 </fieldset>
 <hr>
 <table id="table_view">

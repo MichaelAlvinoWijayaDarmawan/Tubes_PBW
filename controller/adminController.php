@@ -282,6 +282,34 @@ class AdminController{
 			header('Location: login');
 		}
     }
+
+	public function view_addNewDriver(){
+		$id = "";
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
+		return View::createView('addNewDriver.php',
+				[]
+			);
+		}
+		else{
+			header('Location: login');
+		}
+    }
+
+	public function addNewDriver(){
+		$driverName = $_POST['name'];
+		$driverPassword = $_POST['password'];
+		$driverStartWork = $_POST['tanggalMulai'];
+		$driverEndWork = $_POST['masaKerja'];
+
+		$driverName = $this->db->escapeString($driverName);
+		$driverPassword = $this->db->escapeString($driverPassword);
+		$driverStartWork = $this->db->escapeString($driverStartWork);
+		$driverEndWork = $this->db->escapeString($driverEndWork);
+
+		$query = "INSERT INTO drivers (name,password,start_work_date,end_work_date) VALUES ('$driverName','$driverPassword','$driverStartWork','$driverEndWork')";
+		$this->db->executeNonSelectQuery($query);
+
+	}
 }
 ?>
 

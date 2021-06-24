@@ -3,8 +3,8 @@
 ?>
 
 <div class="topnav">
-<a href="" class="active" >Kirim</a>
-<a href="">Tambah Driver Baru</a>
+<a href="listUser" class="active" >Kirim</a>
+<a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>

@@ -56,6 +56,11 @@
 				$indexCtrl = new AdminController();
 				echo $indexCtrl->view_search();
 				break;
+			case $baseURL.'/addNewDriver':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->view_addNewDriver();
+				break;
 			default:
 				echo '404 Not Found';
 				break;
@@ -102,6 +107,12 @@
 				$indexCtrl = new AdminController();
 				$indexCtrl->getSearch();
 				header('Location: search');
+				break;
+			case $baseURL.'/addNewDriver':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				$indexCtrl->addNewDriver();
+				header('Location: listUser');
 				break;
 			default:
 				echo '404 Not Found';

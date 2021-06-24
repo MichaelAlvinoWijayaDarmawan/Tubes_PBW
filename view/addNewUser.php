@@ -5,16 +5,16 @@
 
 <div class="topnav">
 <a href="listUser" >Kirim</a>
-<a href="">Tambah Driver Baru</a>
+<a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser" class="active">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
 
 
 <fieldset>
-		<legend>Tambah User Baru</legend>
-		<br>
-		<form method="POST" action="addNewUser">
+	<legend>Tambah User Baru</legend>
+	<br>
+	<form method="POST" action="addNewUser">
 		<label>Nama User  :
 		<br>
 		<input type="text" name="name" required> </label>
@@ -32,5 +32,6 @@
 		<input type="text" name="deskripsi" required></label>
 		</br>
 		<button class="btnlist" type="submit" value="ADD" name='addDataUser'>Tambah</button>
-
+		<a href="listUser">Back</a>
+	</form>
 </fieldset>
