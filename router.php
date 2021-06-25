@@ -40,6 +40,16 @@
 				$indexCtrl = new DriversController();
 				echo $indexCtrl->view_drivers();
 				break;
+			case $baseURL.'/managerPage':
+				require_once "controller/managerController.php";
+				$indexCtrl = new ManagerController();
+				echo $indexCtrl->view_manager();
+				break;
+			case $baseURL.'/managerReport2':
+				require_once "controller/managerController.php";
+				$indexCtrl = new ManagerController();
+				echo $indexCtrl->view_managerReport2();
+				break;
 			case $baseURL.'/customerPage':
 				require_once "controller/userController.php";
 				$indexCtrl = new UserController();

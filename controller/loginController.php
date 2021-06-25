@@ -19,7 +19,7 @@ class LoginController{
                     header('Location: customerPage');
                 }
                 else if($_SESSION['role'] == "manager"){
-                    header('Location: ');
+                    header('Location: managerPage');
                 }
                 else if($_SESSION['role'] == "drivers"){
                     header('Location: driverPage');

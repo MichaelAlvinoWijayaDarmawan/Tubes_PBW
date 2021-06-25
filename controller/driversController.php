@@ -35,7 +35,7 @@ class DriversController{
     }
     public function getAllData(){
         $id = $this->id;
-		$query = "SELECT d.id as dId, c.name as cName,dr.name as dName, d.end_datetime from deliveries d inner join customers c on d.customer_id = c.id inner join drivers dr on  d.driver_id = dr.id where dr.id = $id";
+		$query = "SELECT d.id as dId, c.name as cName,dr.name as dName, d.end_datetime from deliveries d inner join customers c on d.customer_id = c.id inner join drivers dr on  d.driver_id = dr.id where dr.id = $id and d.status!='Sudah Diterima'";
         $query_result = $this->db->executeSelectQuery($query);
 		$result = [];
 		foreach ($query_result as $key => $value){
