@@ -37,13 +37,28 @@ class LoginController{
             $Username = $_POST['name'];
             $Password = $_POST['password'];
             $Role = $_POST['role'];
-		$result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name = \"$Username\" AND password = '$Password'");
-            if(isset($result[0]['name']) && $result[0]['password'] != ''){
-                session_start();
-                $_SESSION['name'] = $result[0]['name'];
-                $_SESSION['id'] = $result[0]['id'];
-                $_SESSION['role'] = $Role;
-            }
+			$result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name =\"$Username\"");
+			$password_encrypted = $result[0]['password'];
+			#login jika password sudah di hash
+			if (password_verify($Password, $password_encrypted)) {
+				$result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name = \"$Username\" AND password = '$password_encrypted'");
+					if(isset($result[0]['name']) && $result[0]['password'] != ''){
+						session_start();
+						$_SESSION['name'] = $result[0]['name'];
+						$_SESSION['id'] = $result[0]['id'];
+						$_SESSION['role'] = $Role;
+					} 
+			}
+			#login jika password masih belum di hash
+			else{
+				$result = $this->db->executeSelectQuery("SELECT * FROM $Role WHERE name = \"$Username\" AND password = '$Password'");
+					if(isset($result[0]['name']) && $result[0]['password'] != ''){
+						session_start();
+						$_SESSION['name'] = $result[0]['name'];
+						$_SESSION['id'] = $result[0]['id'];
+						$_SESSION['role'] = $Role;
+					}
+			}
         }
 
         public function logout(){

@@ -71,6 +71,17 @@
 				$indexCtrl = new AdminController();
 				echo $indexCtrl->view_addNewDriver();
 				break;
+			case $baseURL.'/pdf1':
+				require_once "controller/ManagerController.php";
+				$indexCtrl = new ManagerController();
+				echo $indexCtrl->view_pdf1();
+				header('Location: pdf1.pdf');
+				break;
+			case $baseURL.'/pdf2':
+				require_once "controller/ManagerController.php";
+				$indexCtrl = new ManagerController();
+				echo $indexCtrl->view_pdf2();
+			header('Location: pdf2.pdf');
 			default:
 				echo '404 Not Found';
 				break;

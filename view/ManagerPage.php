@@ -7,6 +7,7 @@
 <a href="managerReport2" class="" >Laporan 2</a>
 <a href="managerReport3" class="" >Laporan 3</a>
 </div>
+<a href='pdf1'>CETAK PAGE</a>
 <h3 style ='text-align:center;'>10 Driver dengan pengiriman terbanyak Bulan ini</h3>
 <table id="table_view">
 	<tr>
@@ -25,3 +26,4 @@
 		}
     ?>
 </table>
+

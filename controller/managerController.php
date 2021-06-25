@@ -41,7 +41,22 @@ class ManagerController{
                 header('Location: login');
             }
     }
-	
+	public function view_pdf1(){
+		$result = $this->getReportOne();
+        if($_SESSION['id']!="" && $_SESSION['role']=="manager"){
+            return View::createView('pdf1.php',
+                [	
+				"result" => $result
+                ]);}
+    }
+	public function view_pdf2(){
+		$result = $this->getReportTwo();
+        if($_SESSION['id']!="" && $_SESSION['role']=="manager"){
+            return View::createView('pdf2.php',
+                [	
+				"result" => $result
+                ]);}
+    }
 	public function getReportOne(){
 		$query = "SELECT drivers.name, count(driver_id) as jumlah FROM `deliveries` left join drivers on deliveries.driver_id= drivers.id where status= 'Sudah Diterima' and month(end_datetime) = month(CURRENT_DATE()) GROUP BY driver_id LIMIT 10";
 		$query_result = $this->db->executeSelectQuery($query);
