@@ -82,8 +82,14 @@
 			case $baseURL.'/listUser/addDelivery':
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();
-				header('Location: ../listUser');
 				$indexCtrl->addData();
+				header('Location: ../listUser');
+				break;
+			case $baseURL.'/listUser/updateUser':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				$indexCtrl->updateDataCustomer();
+				header('Location: ../listUser');
 				break;
 			case $baseURL.'/addNewUser':
 				require_once "controller/adminController.php";

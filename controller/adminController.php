@@ -141,6 +141,7 @@ class AdminController{
 	public function addNewCustomer(){
 		$customerName = $_POST['name'];
 		$customerPassword = $_POST['password'];
+		$customerPassword =password_hash($customerPassword, PASSWORD_DEFAULT);
 		$customerAddress = $_POST['alamat'];
 		$description = $_POST['deskripsi'];
 
@@ -298,6 +299,7 @@ class AdminController{
 	public function addNewDriver(){
 		$driverName = $_POST['name'];
 		$driverPassword = $_POST['password'];
+		$driverPassword  =password_hash($driverPassword , PASSWORD_DEFAULT);
 		$driverStartWork = $_POST['tanggalMulai'];
 		$driverEndWork = $_POST['masaKerja'];
 
@@ -309,6 +311,17 @@ class AdminController{
 		$query = "INSERT INTO drivers (name,password,start_work_date,end_work_date) VALUES ('$driverName','$driverPassword','$driverStartWork','$driverEndWork')";
 		$this->db->executeNonSelectQuery($query);
 
+	}
+	
+	public function updateDataCustomer(){
+		$newName = $_POST['newName'];
+		$newPassword = $_POST['newPassword'];
+		$id = $_POST['ID'];
+		$newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+		if(isset($newName) && $newName!= "" && isset($newPassword) && $newPassword!= ""){
+		$query = "UPDATE customers SET name=\"$newName\", password='$newPassword' WHERE id='$id'";
+		$this->db->executeNonSelectQuery($query);
+		}
 	}
 }
 ?>
