@@ -1,77 +1,63 @@
 <?php 
 	$tipe = "Admin"; 
-	$username = "Admin";
+    $username = "Admin";
 ?>
 
 <div class="topnav">
-<a href="listUser" class="active" >Kirim</a>
-<a href="listDriver">Driver</a>
+<a href="listUser" >Kirim</a>
+<a href="listDriver" class="active" >Driver</a>
 <a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
 </div>
-
-<form class = ''  method='GET' action='filter'>
+<form class = ''  method='GET' action='filter2'>
 	<fieldset class="search">
 		<legend>Search by Name</legend>
-		<input class="inputSearch" type="text" name="filter" value="">
+		<input class="inputSearch" type="text" name="filter2" value="">
 		<button class="btnSearch" type="submit" value="SEARCH">Cari</button>
 	</fieldset>
 </form>
 <table id="table_view">
-	
 	<?php
-	$i=1;
-	if($result=="null"){
-		echo "Cannot find the result.";
-	}
-	else{
-		echo"<tr>";
+        if($result=="null"){
+            echo "Cannot find the result.";
+        }
+        else{
+        echo"<tr>";
 		echo"<th> No </th>";
 		echo"<th> Nama</th>";
-		echo"<th> Pengiriman</th>";
 		echo"<th> Aksi</th>";
 		echo"</tr>";
+	    $i=1;
 		foreach ($result as $key => $row) {
 			echo "<tr>";
 			echo "<td>".$i."</td>";
-			echo "<td>".$row->getName()."</td>";
+			echo "<td>".$row->getNameDriver()."</td>";
+			$idSelect = $row->getIdDriver();
 			echo "<td>";
-			$idSelect = $row->getCustomerId();
-			echo "<form class = 'fl'  method='GET' action='addDelivery'>".
-				"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>Kirim</button></form>";
-			
-			echo "</td>";
-			echo "<td>";
-			echo "<form  class = 'fl'  method='GET' action='customerAddress'>".
+			echo "<form  class = 'fl'  method='GET' action='deleteDriver'>".
 				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
-			echo "<form  class = 'fl'  method='GET' action='deleteCustomer'>".
-				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
+				"<button class ='btnlist' type='submit' value='deleteDriver' name='deleteDriver' width='60px'><i class='fa fa-trash'></i></button></form>";
 			echo "<button class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
 			echo "</td>";
 			echo "</tr>";
 			$i++;
 		}
-	
-	}
+    }
 	?>
 </table>
 <br>
 <hr>
-
 <br><br><br>
 <div id="myModal" class="modal">
 
   <!-- Modal content -->
   <div class="modal-content">
     <span class="close">&times;</span>
-    <form action="listUser/updateUser" method="post">
+    <form action="listDriver/updateDriver" method="post">
             <table>
                 <tr>
-                    <td><label for="textID">Update User with ID</label></td>
+                    <td><label for="textID">Update Driver with ID</label></td>
                     <td><input type="text" value="" class="inputtextdis" id="IdUser" name="ID" style="background-color: #d3d3d3" readOnly></td>
                 </tr>
                 <br>
@@ -89,7 +75,6 @@
   </div>
 
 </div>
-
 
 <script>
 // Get the modal

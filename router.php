@@ -66,6 +66,11 @@
 				$indexCtrl = new AdminController();
 				echo $indexCtrl->view_search();
 				break;
+			case $baseURL.'/filter2':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->view_search2();
+				break;
 			case $baseURL.'/addNewDriver':
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();
@@ -81,7 +86,18 @@
 				require_once "controller/ManagerController.php";
 				$indexCtrl = new ManagerController();
 				echo $indexCtrl->view_pdf2();
-			header('Location: pdf2.pdf');
+				header('Location: pdf2.pdf');
+			case $baseURL.'/listDriver':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->view_driver();
+				break;
+			case $baseURL.'/deleteDriver':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				echo $indexCtrl->deleteDriver();
+				header('Location: listDriver');
+				break;
 			default:
 				echo '404 Not Found';
 				break;
@@ -130,17 +146,35 @@
 				$driverCtrl-> getPage();
 				header('Location: listUser?page='.$_POST['page'] );
 				break;
+			case $baseURL.'/pagination2':
+				require_once "controller/adminController.php";
+				$driverCtrl = new AdminController();
+				$driverCtrl-> getPage2();
+				header('Location: listDriver?pageDriver='.$_POST['pageDriver'] );
+				break;
 			case $baseURL.'/filter':
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();
 				$indexCtrl->getSearch();
 				header('Location: search');
 				break;
+			case $baseURL.'/filter2':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				$indexCtrl->getSearch2();
+				header('Location: search2');
+				break;
 			case $baseURL.'/addNewDriver':
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();
 				$indexCtrl->addNewDriver();
-				header('Location: listUser');
+				header('Location: listDriver');
+				break;
+			case $baseURL.'/listDriver/updateDriver':
+				require_once "controller/adminController.php";
+				$indexCtrl = new AdminController();
+				$indexCtrl->updateDataDriver();
+				header('Location: ../listDriver');
 				break;
 			default:
 				echo '404 Not Found';

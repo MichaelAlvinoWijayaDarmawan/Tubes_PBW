@@ -1,9 +1,11 @@
 <?php 
 	$tipe = "Admin"; 
+	$username = "Admin"; 
 ?>
 
 <div class="topnav">
 <a href="listUser" class="active" >Kirim</a>
+<a href="listDriver">Driver</a>
 <a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser">Tambah User Baru</a>
 <a href="">Help</a>
@@ -16,38 +18,42 @@
 	</fieldset>
 </form>
 <table id="table_view">
-	<tr>
-		<th>No</th>
-		<th>Name</th>
-		<th>Pengiriman</th>
-		<th>Aksi</th>
-	</tr>
 	<?php
-	
-	$i=1;
-		foreach ($result as $key => $row) {
-			echo "<tr>";
-			echo "<td>".$i."</td>";
-			echo "<td>".$row->getName()."</td>";
-			echo "<td>";
-			$idSelect = $row->getCustomerId();
-			echo "<form class = 'fl'  method='GET' action='addDelivery'>".
-				"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>Kirim</button></form>";
-			
-			echo "</td>";
-			echo "<td>";
-			echo "<form  class = 'fl'  method='GET' action='customerAddress'>".
-				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
-			echo "<form  class = 'fl'  method='GET' action='deleteCustomer'>".
-				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
-			echo "<button class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
-			echo "</td>";
-			echo "</tr>";
-			$i++;
+		$i=1;
+		if($result=="null"){
+			echo "Cannot find the result.";
 		}
+		else{
+			echo"<tr>";
+			echo"<th> No </th>";
+			echo"<th> Nama</th>";
+			echo"<th> Pengiriman</th>";
+			echo"<th> Aksi</th>";
+			echo"</tr>";
+			foreach ($result as $key => $row) {
+				echo "<tr>";
+				echo "<td>".$i."</td>";
+				echo "<td>".$row->getName()."</td>";
+				echo "<td>";
+				$idSelect = $row->getCustomerId();
+				echo "<form class = 'fl'  method='GET' action='addDelivery'>".
+					"<input type='hidden' name='idCustomer' value='$idSelect'/>" .
+					"<button class ='btnlist' type='submit' value='Kirim' name='kirim' width='60px'>Kirim</button></form>";
+				
+				echo "</td>";
+				echo "<td>";
+				echo "<form  class = 'fl'  method='GET' action='customerAddress'>".
+					"<input type='hidden' name='id' value='$idSelect'/>" .
+					"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
+				echo "<form  class = 'fl'  method='GET' action='deleteCustomer'>".
+					"<input type='hidden' name='id' value='$idSelect'/>" .
+					"<button class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
+				echo "<button class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
+				echo "</td>";
+				echo "</tr>";
+				$i++;
+		}
+	}
 	?>
 </table>
 <br>

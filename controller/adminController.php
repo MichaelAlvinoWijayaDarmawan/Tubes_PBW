@@ -81,6 +81,22 @@ class AdminController{
 		return $result;
 	}
 	
+	public function view_driver(){
+		$result = $this ->getPage2();
+		$pageCount = $this ->getCount();
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
+		return View::createView('listDriver.php',
+				[
+					"pageCount" => $pageCount,
+					"result" => $result
+				]
+			);
+		}
+		else{
+			header('Location: login');
+		}
+	}
+
 	public function getAllDataDriver(){
 		$query = "SELECT * from drivers";
 		$query_result = $this->db->executeSelectQuery($query);
@@ -150,14 +166,14 @@ class AdminController{
 		$customerAddress = $this->db->escapeString($customerAddress);
 		$description = $this->db->escapeString($description);
 
-			$query = "INSERT INTO customers (name,password) VALUES ('$customerName','$customerPassword')";
+		$query = "INSERT INTO customers (name,password) VALUES ('$customerName','$customerPassword')";
+			$this->db->executeNonSelectQuery($query);
+		$query = "SELECT id from customers order by id desc limit 1";
+			$result_query = $this->db->executeSelectQuery($query);
+			$customerId = $result_query[0]['id'];
+				$query = "INSERT INTO addresses (customer_id,address,description) 
+						VALUES ('$customerId','$customerAddress','$description')";
 				$this->db->executeNonSelectQuery($query);
-			$query = "SELECT id from customers order by id desc limit 1";
-				$result_query = $this->db->executeSelectQuery($query);
-				$customerId = $result_query[0]['id'];
-					$query = "INSERT INTO addresses (customer_id,address,description) 
-							VALUES ('$customerId','$customerAddress','$description')";
-					$this->db->executeNonSelectQuery($query);
 	}
 
 	public function view_addAddress(){
@@ -214,9 +230,22 @@ class AdminController{
 		$this->db->executeNonSelectQuery($query);
     }
 
+	public function deleteDriver(){
+		$id = "";
+		if(isset($_GET['id']) && $_GET['id'] != "" && $_GET['deleteDriver']!= ""){
+			$id = $this->db->escapeString($_GET['id']);
+		}
+		$query = " DELETE FROM deliveries WHERE driver_id = '$id'";
+		$this->db->executeNonSelectQuery($query);
+		$query = "DELETE FROM drivers WHERE id = '$id'";
+		$this->db->executeNonSelectQuery($query);
+    }
+
+
+	
+	//pagination for Customer
 	public function getPage(){
 		$result = $this ->getAllData();
-		//pagination
 		$limit = 10;
 		if(isset($_GET['page']) && $_GET['page'] !=""){
 			$page = $this->db->escapeString($_GET['page']);
@@ -239,6 +268,31 @@ class AdminController{
 		return $result;
 		
 	}
+	//pagination for Driver
+	public function getPage2(){
+		$result = $this ->getAllDataDriver();
+		$limit = 10;
+		if(isset($_GET['pageDriver']) && $_GET['pageDriver'] !=""){
+			$page = $this->db->escapeString($_GET['pageDriver']);
+			$query = "SELECT * from drivers order by id desc limit $page , $limit";
+			$query_result = $this->db->executeSelectQuery($query);
+			$result = [];
+			foreach ($query_result as $key => $value){
+				$result[] = new Drivers($value['id'],$value['name'],"","","");
+			}
+		}
+		else{
+			$page = 0;
+			$query = "SELECT * from drivers order by id desc limit $page, $limit";
+			$query_result = $this->db->executeSelectQuery($query);
+			$result = [];
+			foreach ($query_result as $key => $value){
+				$result[] = new Drivers($value['id'],$value['name'],"","","");
+			}
+		}
+		return $result;
+		
+	}
 
 	public function getCount(){
 		$result = $this ->getAllData();
@@ -248,6 +302,7 @@ class AdminController{
 		return $pageCount;
 	}
 
+	//search for user
 	public function getSearch(){
 		//filter
 		$name = "";
@@ -256,17 +311,21 @@ class AdminController{
 			if(isset($name)&& $name !=""){
 				$name = $this->db->escapeString($name);
 				$query = "SELECT * from customers WHERE name LIKE '%$name%'";
-			}
-			$query_result = $this->db->executeSelectQuery($query);
-			foreach ($query_result as $key => $value){
-				$result[] = new Customer($value['id'],$value['name'],"","","");
+				$query_result = $this->db->executeSelectQuery($query);
+				foreach ($query_result as $key => $value){
+					$result[] = new Customer($value['id'],$value['name'],"","","");
+				}
 			}
 		}
 		else{
 			header('Location: listUser');
 		}
-		
-		return $result;
+		if(isset($result)&&$result!=""){
+			return $result;
+		}
+		else{
+			return $result = "null";
+		}
 	}
 
 	public function view_search(){
@@ -274,6 +333,49 @@ class AdminController{
 		$result = $this ->getSearch();
 		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
 		return View::createView('search.php',
+				[
+					"result" => $result
+				]
+			);
+		}
+		else{
+			header('Location: login');
+		}
+    }
+
+	//search for driver
+	public function getSearch2(){
+		//filter
+		$name = "";
+		if(isset($_GET['filter2']) && $_GET['filter2']!=""){ 
+			$name = $_GET['filter2'];
+			if(isset($name)&& $name !=""){
+				$name = $this->db->escapeString($name);
+				$query = "SELECT * from drivers WHERE name LIKE '%$name%'";
+				$query_result = $this->db->executeSelectQuery($query);
+				foreach ($query_result as $key => $value){
+					$result[] = new Drivers($value['id'],$value['name'],"","","");
+				}
+			}
+			
+		}
+		else{
+			header('Location: listDriver');
+		}
+		if(isset($result)&&$result!=""){
+			return $result;
+		}
+		else{
+			return $result = "null";
+		}
+	}
+
+
+	public function view_search2(){
+		$id = "";
+		$result = $this ->getSearch2();
+		if($_SESSION['id']!="" && $_SESSION['role']=="admin"){
+		return View::createView('search2.php',
 				[
 					"result" => $result
 				]
@@ -320,6 +422,17 @@ class AdminController{
 		$newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
 		if(isset($newName) && $newName!= "" && isset($newPassword) && $newPassword!= ""){
 		$query = "UPDATE customers SET name=\"$newName\", password='$newPassword' WHERE id='$id'";
+		$this->db->executeNonSelectQuery($query);
+		}
+	}
+
+	public function updateDataDriver(){
+		$newName = $_POST['newName'];
+		$newPassword = $_POST['newPassword'];
+		$id = $_POST['ID'];
+		$newPassword = password_hash($newPassword, PASSWORD_DEFAULT);
+		if(isset($newName) && $newName!= "" && isset($newPassword) && $newPassword!= ""){
+		$query = "UPDATE drivers SET name=\"$newName\", password='$newPassword' WHERE id='$id'";
 		$this->db->executeNonSelectQuery($query);
 		}
 	}
