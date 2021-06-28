@@ -3,7 +3,6 @@
 ?>
 <div class="topnav">
 <a href="" class="active" >Cek Status</a>
-<a href="">Help</a>
 </div>
 
 <table id="table_view">

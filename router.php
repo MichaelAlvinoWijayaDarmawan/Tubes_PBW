@@ -87,6 +87,7 @@
 				$indexCtrl = new ManagerController();
 				echo $indexCtrl->view_pdf2();
 				header('Location: pdf2.pdf');
+				break;
 			case $baseURL.'/listDriver':
 				require_once "controller/adminController.php";
 				$indexCtrl = new AdminController();

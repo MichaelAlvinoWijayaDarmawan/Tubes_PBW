@@ -7,7 +7,7 @@
 <a href="managerReport2" class="active" >Laporan 2</a>
 <a href="managerReport3" class="" >Laporan 3</a>
 </div>
-<a href ="pdf2">CETAK HALAMAN</a>
+<a href='pdf2' target='_blank'>CETAK PAGE</a>
 <h3 style ='text-align:center;'>Daftar Pengiriman yang berhasil di antar bulan ini</h3>
 
 <table id="table_view">
