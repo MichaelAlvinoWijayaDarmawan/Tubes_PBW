@@ -77,7 +77,7 @@ for ($i=1; $i<=$pageCount ; $i++){ ?>
                     <td><input type="text" class="inputtext" name="newPassword" required><br></td>
                 </tr>
             </table>      
-            <input type="submit" class="" value="UPDATE" ></input>
+            <input type="submit" class="" value="UPDATE" onclick="updateAlert" ></input>
         </form>
   </div>
 
@@ -112,6 +112,9 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
+function updateAlert() {
+	  alert("Are you sure want to update?");
+	}
 </script>
 
 <?php

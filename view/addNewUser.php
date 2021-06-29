@@ -32,7 +32,12 @@
 		<br>
 		<input type="text" name="deskripsi" required></label>
 		</br>
-		<button class="btnlist" type="submit" value="ADD" name='addDataUser'>Tambah</button>
+		<button class="btnlist" type="submit" value="ADD" name='addDataUser' onclick="myFunction2()">Tambah</button>
 		<a href="listUser">Back</a>
 	</form>
 </fieldset>
+<script>
+function myFunction2() {
+  alert("Are you sure want to submit?");
+}
+</script>
