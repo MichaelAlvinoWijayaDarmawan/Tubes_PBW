@@ -23,6 +23,15 @@
 			echo "<td>".$row->getCustomerName()."</td>";
 			echo "<td>".date('d-m-Y', strtotime($row->getSchedulededData()))."</td>";
 			echo "<td>".$row->getAddress()."</td>";
+			if($row->getStatus()=='Belum Dikirim'){
+				echo "<td>";
+				$idSelect = $row->getId();
+					echo "<form class = 'fl' method='POST' action='driverPage/kirim'>".
+					"<input type='hidden' name='id' value='$idSelect'/>" .
+				"<button class ='btnlist' type='submit' value='KirimDriver' name='konfirmasi'>Kirim Paket</></form>";
+			echo "</td>";
+			}
+			else{
 			echo "<td>";
 				$idSelect = $row->getId();
 					echo "<form class = 'fl' method='POST' action='driverPage/konfirmasi'>".
@@ -30,6 +39,7 @@
 				"<button class ='btnlist' type='submit' value='Konfirmasi' name='konfirmasi'>Konfirmasi Paket Sampai</></form>";
 		
 			echo "</td>";
+			}
 			echo "</tr>";
 			$i++;
 		}

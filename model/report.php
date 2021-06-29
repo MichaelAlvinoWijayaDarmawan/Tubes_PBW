@@ -2,7 +2,7 @@
 class Report{
 	protected $nama_driver;
 	protected $kategori_barang;
-    protected $jumlah_pengiriman;
+   	protected $jumlah_pengiriman;
 	protected $nama_customer;
 	protected $alamat_pengiriman;
 	protected $nama_barang;

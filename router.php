@@ -146,6 +146,12 @@
 				$indexCtrl->addNewCustomer();
 				header('Location: listUser');
 				break;
+			case $baseURL.'/driverPage/kirim':
+				require_once "controller/driversController.php";
+				$driverCtrl = new DriversController();
+				$driverCtrl-> updateStatusKirim();
+				header('Location: ../driverPage');
+				break;
 			case $baseURL.'/driverPage/konfirmasi':
 				require_once "controller/driversController.php";
 				$driverCtrl = new DriversController();
