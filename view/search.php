@@ -49,8 +49,8 @@
 				"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
 			echo "<form  class = 'fl'  method='GET' action='deleteCustomer'>".
 				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button onclick='myDelete()' class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
-			echo "<button class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
+				"<button onclick='myDelete()' class ='btnlist delete' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
+			echo "<button class ='btnlist update' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
 			echo "</td>";
 			echo "</tr>";
 			$i++;
