@@ -73,6 +73,12 @@ a {
   position: relative;
 
 }
+.delete{
+	background-color:	 red;
+}
+.update{
+	background-color:	 green;
+}
 .topnav {
   overflow: hidden;
   background-color: #333;
