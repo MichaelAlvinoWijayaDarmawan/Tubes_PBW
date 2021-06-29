@@ -4,7 +4,7 @@
 
 <div class="topnav">
 <a href="" class="active" >Kirim</a>
-<a href="">Help</a>
+
 </div>
 
 <table id="table_view">

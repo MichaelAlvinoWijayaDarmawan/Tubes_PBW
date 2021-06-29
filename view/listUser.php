@@ -20,7 +20,7 @@
 	<?php
 		$i=1;
 		if($result=="null"){
-			echo "Cannot find the result.";
+			echo "<h2>Cannot find the result.</h2>";
 		}
 		else{
 			echo"<tr>";
@@ -46,8 +46,8 @@
 					"<button class ='btnlist' type='submit' value='AddAddress' name='AddAddress' width='60px'>Tambah Alamat</button></form>";
 				echo "<form  class = 'fl'  method='GET' action='deleteCustomer'>".
 					"<input type='hidden' name='id' value='$idSelect'/>" .
-					"<button class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
-				echo "<button class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
+					"<button onclick = 'myDelete()' class ='btnlist' type='submit' value='deleteCustomer' name='deleteCustomer' width='60px'><i class='fa fa-trash'></i></button></form>";
+				echo "<button  class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
 				echo "</td>";
 				echo "</tr>";
 				$i++;
@@ -57,14 +57,17 @@
 </table>
 <br>
 <hr>
-<?php 
-for ($i=1; $i<=$pageCount ; $i++){ ?>
-	<form  class = 'fl'  method='POST' action='pagination'><button class="btnlist" name = "page" value = <?php echo ($i-1)*10; ?>><?php echo $i; ?></button></form>
-<?php 
-} 
-?>
-<br><br><br>
-<hr>
+<div id= "container-pagination">
+	<div id = "pagestyle">
+		<?php 
+		for ($i=1; $i<=$pageCount ; $i++){ ?>
+			<form  class = 'fl'  method='POST' action='pagination'><button class="btnlist" name = "page" value = <?php echo ($i-1)*10; ?>><?php echo $i; ?></button></form>
+		<?php 
+		} 
+		?>
+	</div>
+</div>
+<br>
 
 <div id="myModal" class="modal">
 
@@ -124,3 +127,11 @@ window.onclick = function(event) {
   }
 }
 </script>
+
+<?php
+	echo'<script>
+	function myDelete() {
+	  alert("Are you sure want to delete?");
+	}
+	</script>';
+?>

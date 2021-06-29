@@ -8,7 +8,7 @@
 <a href="listDriver" class="active" >Driver</a>
 <a href="addNewDriver">Tambah Driver Baru</a>
 <a href="addNewUser">Tambah User Baru</a>
-<a href="">Help</a>
+
 </div>
 <form class = ''  method='GET' action='filter2'>
 	<fieldset class="search">
@@ -20,7 +20,7 @@
 <table id="table_view">
 	<?php
         if($result=="null"){
-            echo "Cannot find the result.";
+          echo "<h2>Cannot find the result.</h2>";
         }
         else{
         echo"<tr>";
@@ -37,7 +37,7 @@
 			echo "<td>";
 			echo "<form  class = 'fl'  method='GET' action='deleteDriver'>".
 				"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='deleteDriver' name='deleteDriver' width='60px'><i class='fa fa-trash'></i></button></form>";
+				"<button onclick='myDelete()' class ='btnlist' type='submit' value='deleteDriver' name='deleteDriver' width='60px'><i class='fa fa-trash'></i></button></form>";
 			echo "<button class ='btnlist' type='submit' id = '$idSelect'value='$idSelect' onclick=UpdateUser(this.id) name='editCustomer' width='60px'><i class='fa fa-edit'></i></button>";
 			echo "</td>";
 			echo "</tr>";
@@ -54,8 +54,7 @@ for ($i=1; $i<=$pageCount ; $i++){ ?>
 <?php 
 } 
 ?>
-<br><br><br>
-<hr>
+<br>
 
 <div id="myModal" class="modal">
 
@@ -114,3 +113,11 @@ window.onclick = function(event) {
   }
 }
 </script>
+
+<?php
+	echo'<script>
+	function myDelete() {
+	  alert("Are you sure want to delete?");
+	}
+	</script>';
+?>
