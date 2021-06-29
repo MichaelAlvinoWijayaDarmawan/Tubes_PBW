@@ -41,6 +41,19 @@ class ManagerController{
                 header('Location: login');
             }
     }
+	public function view_managerReport3(){
+		$result = $this->getReportThree();
+        if($_SESSION['id']!="" && $_SESSION['role']=="manager"){
+            return View::createView('managerReport3.php',
+                [	
+				"id" => $this->id,
+				"username" => $this->username,
+				"result" => $result
+                ]);}
+            else{
+                header('Location: login');
+            }
+    }
 	public function view_pdf1(){
 		$result = $this->getReportOne();
         if($_SESSION['id']!="" && $_SESSION['role']=="manager"){
@@ -57,12 +70,20 @@ class ManagerController{
 				"result" => $result
                 ]);}
     }
+	public function view_pdf3(){
+		$result = $this->getReportThree();
+        if($_SESSION['id']!="" && $_SESSION['role']=="manager"){
+            return View::createView('pdf3.php',
+                [	
+				"result" => $result
+                ]);}
+    }
 	public function getReportOne(){
 		$query = "SELECT drivers.name, count(driver_id) as jumlah FROM `deliveries` left join drivers on deliveries.driver_id= drivers.id where status= 'Sudah Diterima' and month(end_datetime) = month(CURRENT_DATE()) GROUP BY driver_id LIMIT 10";
 		$query_result = $this->db->executeSelectQuery($query);
 		$result = [];
 		foreach ($query_result as $key => $value){
-			$result[] = new Report($value['name'],$value['jumlah'],"","","");
+			$result[] = new Report($value['name'],$value['jumlah'],"","","","");
 		}
 		return $result;
 	}
@@ -74,10 +95,19 @@ class ManagerController{
 		$query_result = $this->db->executeSelectQuery($query);
 		$result = [];
 		foreach ($query_result as $key => $value){
-			$result[] = new Report($value['name'],"",$value['cname'],$value['address'],$value['iname']);
+			$result[] = new Report($value['name'],"",$value['cname'],$value['address'],$value['iname'],"");
 		}
 		return $result;
 	}
-	
+	public function getReportThree(){
+		$query = "SELECT category,count(category) as 'jumlah' FROM `items` group by category";
+		$query_result = $this->db->executeSelectQuery($query);
+		$result = [];
+		foreach ($query_result as $key => $value){
+			$result[] = new Report("",$value['jumlah'],"","","",$value['category']);
+		}
+		return $result;
+	}
+
 }
 ?>

@@ -50,6 +50,11 @@
 				$indexCtrl = new ManagerController();
 				echo $indexCtrl->view_managerReport2();
 				break;
+			case $baseURL.'/managerReport3':
+				require_once "controller/managerController.php";
+				$indexCtrl = new ManagerController();
+				echo $indexCtrl->view_managerReport3();
+				break;
 			case $baseURL.'/customerPage':
 				require_once "controller/userController.php";
 				$indexCtrl = new UserController();
@@ -87,6 +92,12 @@
 				$indexCtrl = new ManagerController();
 				echo $indexCtrl->view_pdf2();
 				header('Location: pdf2.pdf');
+				break;
+			case $baseURL.'/pdf3':
+				require_once "controller/ManagerController.php";
+				$indexCtrl = new ManagerController();
+				echo $indexCtrl->view_pdf3();
+				header('Location: pdf3.pdf');
 				break;
 			case $baseURL.'/listDriver':
 				require_once "controller/adminController.php";

@@ -1,17 +1,19 @@
 <?php
 class Report{
 	protected $nama_driver;
+	protected $kategori_barang;
     protected $jumlah_pengiriman;
 	protected $nama_customer;
 	protected $alamat_pengiriman;
 	protected $nama_barang;
 	
-	public function __construct($nama_driver,$jumlah_pengiriman,$nama_customer,$alamat_pengiriman,$nama_barang){
+	public function __construct($nama_driver,$jumlah_pengiriman,$nama_customer,$alamat_pengiriman,$nama_barang,$kategori_barang){
         $this->nama_driver = $nama_driver;
         $this->jumlah_pengiriman = $jumlah_pengiriman;
 		$this->nama_customer = $nama_customer;
         $this->alamat_pengiriman = $alamat_pengiriman;
 		$this->nama_barang = $nama_barang;
+		$this->kategori_barang = $kategori_barang;
 	}
 
     public function getDriverName(){
@@ -28,6 +30,9 @@ class Report{
 	}
     public function getItemName(){
 		return $this->nama_barang;
+	}
+	 public function getKategoriBarang(){
+		return $this->kategori_barang;
 	}
 }
 ?>

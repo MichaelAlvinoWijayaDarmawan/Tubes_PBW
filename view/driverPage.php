@@ -12,6 +12,7 @@
 		<th>No</th>
 		<th>Customer</th>
 		<th>Driver</th>
+		<th>Address</th>
 		<th>Aksi</th>
 	</tr>
 	<?php
@@ -21,6 +22,7 @@
 			echo "<td>".$i."</td>";
 			echo "<td>".$row->getCustomerName()."</td>";
 			echo "<td>".$row->getDriverName()."</td>";
+			echo "<td>".$row->getAddress()."</td>";
 			echo "<td>";
 				$idSelect = $row->getId();
 					echo "<form class = 'fl' method='POST' action='driverPage/konfirmasi'>".
