@@ -28,7 +28,7 @@
 				$idSelect = $row->getId();
 					echo "<form class = 'fl' method='POST' action='driverPage/kirim'>".
 					"<input type='hidden' name='id' value='$idSelect'/>" .
-				"<button class ='btnlist' type='submit' value='KirimDriver' name='konfirmasi'>Kirim Paket</></form>";
+				"<button style= 'width:243.6px' class ='btnlist' type='submit' value='KirimDriver' name='konfirmasi'>Kirim Paket</></form>";
 			echo "</td>";
 			}
 			else{
