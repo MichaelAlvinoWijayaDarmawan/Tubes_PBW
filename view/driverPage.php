@@ -11,7 +11,7 @@
 	<tr>
 		<th>No</th>
 		<th>Customer</th>
-		<th>Driver</th>
+		<th>Schedule Date</th>
 		<th>Address</th>
 		<th>Aksi</th>
 	</tr>
@@ -21,7 +21,7 @@
 			echo "<tr>";
 			echo "<td>".$i."</td>";
 			echo "<td>".$row->getCustomerName()."</td>";
-			echo "<td>".$row->getDriverName()."</td>";
+			echo "<td>".date('d-m-Y', strtotime($row->getSchedulededData()))."</td>";
 			echo "<td>".$row->getAddress()."</td>";
 			echo "<td>";
 				$idSelect = $row->getId();
